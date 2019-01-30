@@ -54,3 +54,16 @@ if (token) {
 //     cluster: process.env.MIX_PUSHER_APP_CLUSTER,
 //     encrypted: true
 // });
+
+window.io = require('socket.io-client');
+import Echo from 'laravel-echo'
+
+window.Echo = new Echo({
+    broadcaster: 'socket.io',
+    host: window.location.hostname + ':6001'
+});
+
+window.Echo.channel('availability') // Broadcast channel name
+    .listen('Availability', (e) => { // Message name
+        console.log(e); // The operation performed by the message, the parameter e is the data carried
+    });
