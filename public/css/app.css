@@ -11172,29 +11172,3 @@ label.panel-block:hover {
   padding: 3rem 1.5rem 6rem;
 }
 
-.loader.is-loading {
-  position: relative;
-  pointer-events: none;
-  opacity: 0.5;
-}
-
-.loader.is-loading:after {
-  -webkit-animation: spinAround 500ms infinite linear;
-          animation: spinAround 500ms infinite linear;
-  border: 2px solid #dbdbdb;
-  border-radius: 290486px;
-  border-right-color: transparent;
-  border-top-color: transparent;
-  content: "";
-  display: block;
-  height: 1em;
-  position: relative;
-  width: 1em;
-  position: absolute;
-  top: calc(50% - 2.5em);
-  left: calc(50% - 2.5em);
-  width: 5em;
-  height: 5em;
-  border-width: 0.25em;
-}
-
