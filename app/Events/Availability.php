@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Services\ServiceInterface;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Broadcasting\PrivateChannel;
@@ -16,17 +17,16 @@ class Availability implements ShouldBroadcast
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
     /**
-     * @var string
+     * @var ServiceInterface
      */
     protected $service;
 
     /**
      * Create a new event instance.
      *
-     * @param string $service
-     * @param string $state
+     * @param ServiceInterface $service
      */
-    public function __construct(string $service)
+    public function __construct(ServiceInterface $service)
     {
         $this->service = $service;
     }
@@ -37,7 +37,7 @@ class Availability implements ShouldBroadcast
     public function broadcastWith(): array
     {
         return [
-            'service' => $this->service,
+            'service' => $this->service->toArray(),
         ];
     }
 

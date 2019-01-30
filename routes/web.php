@@ -12,6 +12,5 @@
 */
 
 Route::get('/', function () {
-    broadcast(new \App\Events\Availability('hello'));
     return view('welcome');
 });
