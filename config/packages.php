@@ -7,4 +7,6 @@ return [
     \App\Services\Packages\Netatalk::class => env('SERVICE_NETATALK_ENABLE', false),
     \App\Services\Packages\NetData::class => env('SERVICE_NETDATA_ENABLE', false),
     \App\Services\Packages\GitlabDocker::class => env('SERVICE_GITLAB_DOCKER_ENABLE', false),
+    \App\Services\Packages\Samba::class => env('SERVICE_SAMBA_ENABLE', false),
+    \App\Services\Packages\Supervisor::class => env('SERVICE_SUPERVISOR_ENABLE', false),
 ];

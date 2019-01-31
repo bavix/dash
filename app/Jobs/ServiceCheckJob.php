@@ -2,8 +2,6 @@
 
 namespace App\Jobs;
 
-use App\Events\Availability;
-use App\Services\ServiceInterface;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -20,17 +18,10 @@ class ServiceCheckJob implements ShouldQueue
      *
      * @return void
      */
-    public function handle()
+    public function handle(): void
     {
-        foreach (getPackages() as $order => $package) {
-            /**
-             * @var ServiceInterface $service
-             */
-            $service = new $package();
-            $service->setOrder($order);
-            $service->active();
-
-            event(new Availability($service));
+        foreach (getServices() as $service) {
+            dispatch(new PackageInspectionJob($service));
         }
     }
 

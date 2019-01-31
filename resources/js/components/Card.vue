@@ -34,9 +34,9 @@
 
     import { library } from '@fortawesome/fontawesome-svg-core'
     import { faLinux, faGitlab } from '@fortawesome/free-brands-svg-icons'
-    import { faChartBar, faHdd, faCircle, faVideo } from '@fortawesome/pro-solid-svg-icons'
+    import { faChartBar, faHdd, faCircle, faVideo, faCloudDownloadAlt } from '@fortawesome/pro-solid-svg-icons'
     // import { faCoffee } from '@fortawesome/pro-regular-svg-icons'
-    import { faTerminal } from '@fortawesome/pro-light-svg-icons'
+    import { faTerminal, faRocket } from '@fortawesome/pro-light-svg-icons'
 
     library.add(faLinux)
     library.add(faGitlab)
@@ -45,6 +45,8 @@
     library.add(faTerminal)
     library.add(faCircle)
     library.add(faVideo)
+    library.add(faRocket)
+    library.add(faCloudDownloadAlt)
 
     export default {
         props: {
