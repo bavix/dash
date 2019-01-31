@@ -1,7 +1,10 @@
 <template>
     <div class="flex-card card-overflow light-bordered light-raised">
         <div class="icon-header">
-            <i class="notification" :class="[service.icon, service.color]"></i>
+            <span class="notification" :class="service.color">
+                <font-awesome-icon :icon="service.icon" />
+            </span>
+            <!--<i class="notification" :class="[service.icon, service.color]"></i>-->
         </div>
         <div class="content">
             <div class="card-title has-text-right">
@@ -24,17 +27,31 @@
 </template>
 
 <script>
+    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+    import { library } from '@fortawesome/fontawesome-svg-core'
+    import { faLinux, faGitlab } from '@fortawesome/free-brands-svg-icons'
+    // import { faCoffee } from '@fortawesome/pro-solid-svg-icons'
+    // import { faCoffee } from '@fortawesome/pro-regular-svg-icons'
+    // import { faCoffee } from '@fortawesome/pro-light-svg-icons'
+
+    library.add(faLinux)
+    library.add(faGitlab)
+
     export default {
         props: {
             service: Object
+        },
+        components: {
+            FontAwesomeIcon,
         }
     }
 </script>
 
 <style scoped>
 
-    .flex-card .icon-header i {
-        box-shadow: 0 14px 26px -12px rgba(0,209,178,0.42),0 4px 23px 0px rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,209,178,0.2) !important;
+    .flex-card .icon-header .notification {
+        box-shadow: 0 14px 26px -12px rgba(0,209,178,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,209,178,0.2) !important;
     }
 
     .flex-card.light-raised {
@@ -49,8 +66,8 @@
         padding: 20px !important;
     }
 
-    .flex-card .icon-header i {
-        padding: 22px;
+    .flex-card .icon-header .notification {
+        padding: 15px 22px 15px 22px;
         font-size: 24px;
         font-weight: normal;
         border-radius: 3px;

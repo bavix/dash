@@ -1,4 +1,106 @@
-@import url(https://fonts.googleapis.com/css?family=Nunito);@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css?family=Nunito);
+.flex-card .icon-header .notification[data-v-b9bc2c0a] {
+    box-shadow: 0 14px 26px -12px rgba(0,209,178,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,209,178,0.2) !important;
+}
+.flex-card.light-raised[data-v-b9bc2c0a] {
+    box-shadow: 0 3px 10px 4px rgba(0,0,0,0.04);
+}
+.flex-card.light-bordered[data-v-b9bc2c0a] {
+    border: 1px solid #e5e5e5 !important;
+}
+.flex-card .content[data-v-b9bc2c0a] {
+    padding: 20px !important;
+}
+.flex-card .icon-header .notification[data-v-b9bc2c0a] {
+    padding: 15px 22px 15px 22px;
+    font-size: 24px;
+    font-weight: normal;
+    border-radius: 3px;
+    position: absolute;
+    left: 10px;
+    top: -20px;
+}
+.flex-card[data-v-b9bc2c0a] {
+    position: relative;
+    background-color: #fff;
+    border: 1px solid #fcfcfc;
+    border-radius: 0.1875rem;
+    display: inline-block;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 20px;
+    transition: all 0.5s;
+}
+.flex-card.card-overflow[data-v-b9bc2c0a] {
+    overflow: visible !important;
+}
+
+
+.loading[data-v-30b0c6c9] {
+    height: 2em;
+    width: 2em;
+    overflow: visible;
+    margin: auto;
+}
+.loading[data-v-30b0c6c9]:before {
+    content: '';
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.loading[data-v-30b0c6c9]:not(:required) {
+    font: 0/0 a;
+    color: transparent;
+    text-shadow: none;
+    background-color: transparent;
+    border: 0;
+}
+.loading[data-v-30b0c6c9]:not(:required):after {
+    content: '';
+    display: block;
+    font-size: 10px;
+    width: 1em;
+    height: 1em;
+    margin-top: -0.5em;
+    -webkit-animation: spinner-data-v-30b0c6c9 1500ms infinite linear;
+            animation: spinner-data-v-30b0c6c9 1500ms infinite linear;
+    border-radius: 0.5em;
+    box-shadow:
+            rgba(0, 0, 0, 0.75) 1.5em 0 0 0,
+            rgba(0, 0, 0, 0.75) 1.1em 1.1em 0 0,
+            rgba(0, 0, 0, 0.75) 0 1.5em 0 0,
+            rgba(0, 0, 0, 0.75) -1.1em 1.1em 0 0,
+            rgba(0, 0, 0, 0.75) -1.5em 0 0 0,
+            rgba(0, 0, 0, 0.75) -1.1em -1.1em 0 0,
+            rgba(0, 0, 0, 0.75) 0 -1.5em 0 0,
+            rgba(0, 0, 0, 0.75) 1.1em -1.1em 0 0;
+}
+
+/* Animation */
+@-webkit-keyframes spinner-data-v-30b0c6c9 {
+0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+}
+100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+}
+}
+@keyframes spinner-data-v-30b0c6c9 {
+0% {
+        -webkit-transform: rotate(0deg);
+                transform: rotate(0deg);
+}
+100% {
+        -webkit-transform: rotate(360deg);
+                transform: rotate(360deg);
+}
+}
+@charset "UTF-8";
 
 /*! bulma.io v0.7.2 | MIT License | github.com/jgthms/bulma */
 

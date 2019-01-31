@@ -22,12 +22,12 @@ class ServiceCheckJob implements ShouldQueue
      */
     public function handle()
     {
-        \usleep(50);
-        foreach (getPackages() as $package) {
+        foreach (getPackages() as $order => $package) {
             /**
              * @var ServiceInterface $service
              */
             $service = new $package();
+            $service->setOrder($order);
             $service->active();
 
             event(new Availability($service));

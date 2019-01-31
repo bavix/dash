@@ -12,6 +12,5 @@
 */
 
 Route::get('/', function () {
-    dispatch(new \App\Jobs\ServiceCheckJob());
-    return view('welcome');
+    return view('dashboard');
 });

@@ -13,6 +13,7 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+Route::get('/services', function (Request $request) {
+    dispatch(new \App\Jobs\ServiceCheckJob());
+    return response()->noContent();
 });

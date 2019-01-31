@@ -56,9 +56,22 @@ abstract class Package implements ServiceInterface
     protected $url;
 
     /**
-     * @var string
+     * @var array
      */
-    protected $icon;
+    protected $icon = [];
+
+    /**
+     * @var int
+     */
+    protected $order;
+
+    /**
+     * @param int $order
+     */
+    public function setOrder(int $order): void
+    {
+        $this->order = $order;
+    }
 
     /**
      * @return bool
@@ -131,6 +144,7 @@ abstract class Package implements ServiceInterface
             'active' => $this->active,
             'url' => $this->url,
             'icon' => $this->icon,
+            'order' => $this->order,
         ];
     }
 

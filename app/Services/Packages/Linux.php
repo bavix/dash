@@ -33,9 +33,9 @@ class Linux extends Package
     protected $color = 'is-light';
 
     /**
-     * @var string
+     * @var array
      */
-    protected $icon = 'fab fa-linux';
+    protected $icon = ['fab', 'linux'];
 
     /**
      * @return bool
