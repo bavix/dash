@@ -8,7 +8,10 @@
         </div>
         <div class="content">
             <div class="card-title has-text-right">
-                <h5 v-text="service.title"></h5>
+                <span class="subtitle is-5" v-text="service.title"></span>
+                <span class="icon" :class="classStatusService">
+                    <font-awesome-icon icon="circle"  />
+                </span>
             </div>
 
             <div class="card-content" style="padding-left: 0; padding-right: 0">
@@ -31,12 +34,17 @@
 
     import { library } from '@fortawesome/fontawesome-svg-core'
     import { faLinux, faGitlab } from '@fortawesome/free-brands-svg-icons'
-    // import { faCoffee } from '@fortawesome/pro-solid-svg-icons'
+    import { faChartBar, faHdd, faCircle, faVideo } from '@fortawesome/pro-solid-svg-icons'
     // import { faCoffee } from '@fortawesome/pro-regular-svg-icons'
-    // import { faCoffee } from '@fortawesome/pro-light-svg-icons'
+    import { faTerminal } from '@fortawesome/pro-light-svg-icons'
 
     library.add(faLinux)
     library.add(faGitlab)
+    library.add(faChartBar)
+    library.add(faHdd)
+    library.add(faTerminal)
+    library.add(faCircle)
+    library.add(faVideo)
 
     export default {
         props: {
@@ -44,6 +52,14 @@
         },
         components: {
             FontAwesomeIcon,
+        },
+        computed: {
+            classStatusService() {
+                return {
+                    'has-text-danger': !this.service.active,
+                    'has-text-success': this.service.active,
+                }
+            }
         }
     }
 </script>

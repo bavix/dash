@@ -145,6 +145,7 @@ abstract class Package implements ServiceInterface
             'url' => $this->url,
             'icon' => $this->icon,
             'order' => $this->order,
+            'time' => \time(),
         ];
     }
 
