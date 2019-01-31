@@ -15,7 +15,7 @@ class Plex extends Package
     /**
      * @var array
      */
-    protected $apps = ['plexmediaserver'];
+    protected $apps = [['plexmediaserver']];
 
     /**
      * @var string

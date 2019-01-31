@@ -15,7 +15,7 @@ class Netatalk extends Package
     /**
      * @var array
      */
-    protected $apps = ['netatalk'];
+    protected $apps = [['netatalk']];
 
     /**
      * @var string

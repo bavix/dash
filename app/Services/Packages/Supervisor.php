@@ -15,7 +15,7 @@ class Supervisor extends Package
     /**
      * @var array
      */
-    protected $apps = ['supervisord'];
+    protected $apps = [['supervisord'], ['supervisor']];
 
     /**
      * @var string

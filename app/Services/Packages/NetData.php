@@ -15,7 +15,7 @@ class NetData extends Package
     /**
      * @var array
      */
-    protected $apps = ['netdata'];
+    protected $apps = [['netdata']];
 
     /**
      * @var string

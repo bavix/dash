@@ -15,7 +15,7 @@ class OpenSSH extends Package
     /**
      * @var array
      */
-    protected $apps = ['sshd'];
+    protected $apps = [['sshd']];
 
     /**
      * @var string

@@ -2,7 +2,7 @@
 
 namespace App\Services;
 
-class Docker extends Package
+abstract class Docker extends Package
 {
 
     /**
@@ -10,12 +10,21 @@ class Docker extends Package
      */
     public function active(): bool
     {
-        $this->active = true;
-        foreach ($this->apps as $app) {
-            $app = \json_encode($app);
-            \exec('docker ps | grep ' . $app, $output);
-            if (!\count($output)) {
-                $this->active = false;
+        /**
+         * @var array $apps
+         */
+        foreach ($this->apps as $apps) {
+            $this->active = true;
+            foreach ($apps as $app) {
+                $app = \json_encode($app);
+                \exec('docker ps | grep ' . $app, $output);
+                if (!\count($output)) {
+                    $this->active = false;
+                    break;
+                }
+            }
+
+            if ($this->active) {
                 break;
             }
         }
@@ -28,9 +37,14 @@ class Docker extends Package
      */
     public function start(): bool
     {
-        foreach ($this->apps as $app) {
-            $app = \json_encode($app);
-            \exec('docker start ' . $app);
+        /**
+         * @var array $apps
+         */
+        foreach ($this->apps as $apps) {
+            foreach ($apps as $app) {
+                $app = \json_encode($app);
+                \exec('docker start ' . $app);
+            }
         }
 
         return $this->active();
@@ -41,9 +55,14 @@ class Docker extends Package
      */
     public function stop(): bool
     {
-        foreach ($this->apps as $app) {
-            $app = \json_encode($app);
-            \exec('nohup docker stop ' . $app . ' >/dev/null 2>&1 &');
+        /**
+         * @var array $apps
+         */
+        foreach ($this->apps as $apps) {
+            foreach ($apps as $app) {
+                $app = \json_encode($app);
+                \exec('nohup docker stop ' . $app . ' >/dev/null 2>&1 &');
+            }
         }
 
         return $this->active();
@@ -54,9 +73,14 @@ class Docker extends Package
      */
     public function restart(): bool
     {
-        foreach ($this->apps as $app) {
-            $app = \json_encode($app);
-            \exec('docker restart ' . $app);
+        /**
+         * @var array $apps
+         */
+        foreach ($this->apps as $apps) {
+            foreach ($apps as $app) {
+                $app = \json_encode($app);
+                \exec('docker restart ' . $app);
+            }
         }
 
         return $this->active();

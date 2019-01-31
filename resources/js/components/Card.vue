@@ -1,5 +1,5 @@
 <template>
-    <div class="flex-card card-overflow light-bordered light-raised">
+    <div class="animated fadeIn flex-card card-overflow light-bordered light-raised">
         <div class="icon-header">
             <span class="notification" :class="service.color">
                 <font-awesome-icon :icon="service.icon" />
@@ -36,7 +36,7 @@
     import { faLinux, faGitlab } from '@fortawesome/free-brands-svg-icons'
     import { faChartBar, faHdd, faCircle, faVideo, faCloudDownloadAlt } from '@fortawesome/pro-solid-svg-icons'
     // import { faCoffee } from '@fortawesome/pro-regular-svg-icons'
-    import { faTerminal, faRocket } from '@fortawesome/pro-light-svg-icons'
+    import { faTerminal, faRocket, faWifi } from '@fortawesome/pro-light-svg-icons'
 
     library.add(faLinux)
     library.add(faGitlab)
@@ -47,6 +47,7 @@
     library.add(faVideo)
     library.add(faRocket)
     library.add(faCloudDownloadAlt)
+    library.add(faWifi)
 
     export default {
         props: {

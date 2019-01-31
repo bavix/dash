@@ -27,7 +27,7 @@ class GitlabDocker extends Docker
      */
     public function __construct()
     {
-        $this->apps = [env('GITLAB_DOCKER_APP', 'gitlab_web_1')];
+        $this->apps = [[env('GITLAB_DOCKER_APP', 'gitlab_web_1')]];
     }
 
 }

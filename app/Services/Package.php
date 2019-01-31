@@ -66,6 +66,19 @@ abstract class Package implements ServiceInterface
     protected $order;
 
     /**
+     * Package constructor.
+     * @param array $options
+     */
+    public function __construct(array $options)
+    {
+        foreach ($options as $name => $value) {
+            if (property_exists($this, $name)) {
+                $this->$name = $value;
+            }
+        }
+    }
+
+    /**
      * @param int $order
      */
     public function setOrder(int $order): void
@@ -78,12 +91,21 @@ abstract class Package implements ServiceInterface
      */
     public function active(): bool
     {
-        $this->active = true;
-        foreach ($this->apps as $app) {
-            $output = \systemCtl('is-active', $app);
-            $status = $output[0] ?? 'inactive';
-            if ($status === 'inactive') {
-                $this->active = false;
+        /**
+         * @var array $apps
+         */
+        foreach ($this->apps as $apps) {
+            $this->active = true;
+            foreach ($apps as $app) {
+                $output = \systemCtl('is-active', $app);
+                $status = $output[0] ?? 'inactive';
+                if ($status === 'inactive') {
+                    $this->active = false;
+                    break;
+                }
+            }
+
+            if ($this->active) {
                 break;
             }
         }
@@ -96,8 +118,13 @@ abstract class Package implements ServiceInterface
      */
     public function start(): bool
     {
-        foreach ($this->apps as $app) {
-            \systemCtl('stop', $app);
+        /**
+         * @var array $apps
+         */
+        foreach ($this->apps as $apps) {
+            foreach ($apps as $app) {
+                \systemCtl('stop', $app);
+            }
         }
 
         return $this->active();
@@ -108,8 +135,13 @@ abstract class Package implements ServiceInterface
      */
     public function stop(): bool
     {
-        foreach ($this->apps as $app) {
-            \systemCtl('start', $app);
+        /**
+         * @var array $apps
+         */
+        foreach ($this->apps as $apps) {
+            foreach ($apps as $app) {
+                \systemCtl('start', $app);
+            }
         }
 
         return $this->active();
@@ -120,8 +152,13 @@ abstract class Package implements ServiceInterface
      */
     public function restart(): bool
     {
-        foreach ($this->apps as $app) {
-            \systemCtl('restart', $app);
+        /**
+         * @var array $apps
+         */
+        foreach ($this->apps as $apps) {
+            foreach ($apps as $app) {
+                \systemCtl('restart', $app);
+            }
         }
 
         return $this->active();

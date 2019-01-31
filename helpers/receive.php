@@ -1,10 +1,9 @@
 <?php
 
 if (!\function_exists('getPackages')) {
-    function getPackages(): array
+    function getServices(): \Generator
     {
-        $filter = \array_filter(\config('packages', []));
-        return \array_keys($filter);
+        // todo
     }
 }
 
@@ -14,12 +13,23 @@ if (!\function_exists('getServices')) {
      */
     function getServices(): \Generator
     {
-        foreach (getPackages() as $order => $package) {
+        static $services;
+        static $packages;
+        if (!$packages) {
+            $packages = \config('packages', []);
+        }
+
+        if (!$services) {
+
+        }
+
+        $index = 0;
+        foreach ($packages as $order => $package) {
             /**
              * @var \App\Services\ServiceInterface $service
              */
             $service = new $package();
-            $service->setOrder($order);
+            $service->setOrder($index);
             yield $service;
         }
     }

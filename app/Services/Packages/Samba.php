@@ -15,7 +15,7 @@ class Samba extends Package
     /**
      * @var array
      */
-    protected $apps = ['smb', 'nmb'];
+    protected $apps = [['smb', 'nmb']];
 
     /**
      * @var array
