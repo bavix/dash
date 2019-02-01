@@ -29,10 +29,25 @@ if (!\function_exists('getServices')) {
                 /**
                  * @var \App\Services\ServiceInterface $service
                  */
-                $services[] = new $class($options);
+                $services[$class] = new $class($options);
             }
         }
 
         return $services;
+    }
+}
+
+if (!\function_exists('getService')) {
+    /**
+     * @param string $class
+     * @return \App\Services\ServiceInterface
+     */
+    function getService(string $class): \App\Services\ServiceInterface
+    {
+        $services = getServices();
+        if (empty($services[$class])) {
+            throw new RuntimeException('Service not found');
+        }
+        return $services[$class];
     }
 }

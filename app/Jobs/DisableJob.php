@@ -10,7 +10,7 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 
-class ActivityJob implements ShouldQueue
+class DisableJob implements ShouldQueue
 {
 
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
@@ -21,7 +21,7 @@ class ActivityJob implements ShouldQueue
     protected $service;
 
     /**
-     * ActivityJob constructor.
+     * DisableJob constructor.
      * @param ServiceInterface $service
      */
     public function __construct(ServiceInterface $service)
@@ -36,7 +36,7 @@ class ActivityJob implements ShouldQueue
      */
     public function handle(): void
     {
-        $this->service->active();
+        $this->service->stop();
         event(new Availability($this->service));
     }
 
