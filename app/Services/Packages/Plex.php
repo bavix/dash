@@ -25,6 +25,6 @@ class Plex extends Package
     /**
      * @var array
      */
-    protected $icon = ['fas', 'video'];
+    protected $icon = ['fal', 'video'];
 
 }

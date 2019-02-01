@@ -20,7 +20,7 @@ class Transmission extends Package
     /**
      * @var array
      */
-    protected $icon = ['fas', 'download'];
+    protected $icon = ['fal', 'download'];
 
     /**
      * @var string

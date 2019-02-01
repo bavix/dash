@@ -21,11 +21,6 @@ abstract class Router extends Package
     protected $icon = ['fal', 'wifi'];
 
     /**
-     * @var string
-     */
-    protected $address;
-
-    /**
      * @var bool
      */
     protected $startAllowed = false;
@@ -41,7 +36,7 @@ abstract class Router extends Package
     public function active(): bool
     {
         $ch = \curl_init();
-        \curl_setopt($ch, CURLOPT_URL, $this->address);
+        \curl_setopt($ch, CURLOPT_URL, $this->url);
         \curl_setopt($ch, CURLOPT_HEADER, true);
         \curl_setopt($ch, CURLOPT_NOBODY, true);
         \curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -53,7 +48,7 @@ abstract class Router extends Package
         \curl_close($ch);
 
         if ($code === 0) {
-            $header = \get_headers($this->address, 1)[0] ?? 'HTTP/1.1 400 BAD REQUEST';
+            $header = \get_headers($this->url, 1)[0] ?? 'HTTP/1.1 400 BAD REQUEST';
             $code = (int)(\explode(' ', $header, 3)[1] ?? 400);
         }
 

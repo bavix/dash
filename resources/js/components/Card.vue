@@ -10,19 +10,27 @@
             <div class="card-title has-text-right">
                 <span class="subtitle is-5" v-text="service.title"></span>
                 <span class="icon" :class="classStatusService">
-                    <font-awesome-icon icon="circle"  />
+                    <font-awesome-icon icon="circle" />
                 </span>
             </div>
 
-            <div class="card-content" style="padding-left: 0; padding-right: 0">
-                <div class="buttons is-pulled-right">
-                    <!--<button v-if="service.toggle" @click="clickService('toggle', service)" class="button"-->
-                            <!--:class="[service.started ? 'is-success' : 'is-danger']">-->
-                        <!--<i class="fa-circle" :class="[service.started ? 'fas' : 'fal']" aria-hidden="true"></i>-->
-                    <!--</button>-->
-                    <!--<button v-if="service.restart" @click="clickService('restart', service)" class="button is-warning" :disabled="!service.started">-->
-                        <!--<i class="fas fa-undo-alt" aria-hidden="true"></i>-->
-                    <!--</button>-->
+            <div class="card-content" style="padding-right: 0; padding-left: 0; padding-bottom: 0">
+                <div class="columns">
+                    <div class="column">
+                        <a v-show="service.url" target="_blank" :href="service.url" class="button">
+                            <font-awesome-icon icon="link" />
+                        </a>
+                    </div>
+                    <div class="column">
+                        <div class="buttons is-pulled-right">
+                            <button class="button is-success">
+                                <font-awesome-icon icon="circle" />
+                            </button>
+                            <button class="button is-warning">
+                                <font-awesome-icon icon="undo-alt" />
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -34,22 +42,33 @@
 
     import { library } from '@fortawesome/fontawesome-svg-core'
     import { faLinux, faGitlab } from '@fortawesome/free-brands-svg-icons'
-    import { faChartBar, faHdd, faCircle, faVideo, faCloudDownloadAlt, faDownload } from '@fortawesome/pro-solid-svg-icons'
-    // import { faCoffee } from '@fortawesome/pro-regular-svg-icons'
-    import { faTerminal, faRocket, faWifi, faUserShield } from '@fortawesome/pro-light-svg-icons'
+    import { faCircle, faUndoAlt, faLink } from '@fortawesome/pro-solid-svg-icons'
+    import {
+        faChartBar,
+        faTerminal,
+        faHdd,
+        faRocket,
+        faWifi,
+        faVideo,
+        faCloudDownloadAlt,
+        faDownload,
+        faUserShield
+    } from '@fortawesome/pro-light-svg-icons'
 
-    library.add(faLinux)
-    library.add(faGitlab)
-    library.add(faChartBar)
-    library.add(faHdd)
-    library.add(faTerminal)
-    library.add(faCircle)
-    library.add(faVideo)
-    library.add(faRocket)
-    library.add(faCloudDownloadAlt)
-    library.add(faWifi)
-    library.add(faDownload)
-    library.add(faUserShield)
+    library.add(faLinux);
+    library.add(faGitlab);
+    library.add(faChartBar);
+    library.add(faHdd);
+    library.add(faTerminal);
+    library.add(faCircle);
+    library.add(faVideo);
+    library.add(faRocket);
+    library.add(faCloudDownloadAlt);
+    library.add(faWifi);
+    library.add(faDownload);
+    library.add(faUserShield);
+    library.add(faUndoAlt);
+    library.add(faLink);
 
     export default {
         props: {
@@ -72,7 +91,7 @@
 <style scoped>
 
     .flex-card .icon-header .notification {
-        box-shadow: 0 14px 26px -12px rgba(0,209,178,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,209,178,0.2) !important;
+        box-shadow: 0 14px 26px -12px rgba(0,209,178,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,209,178,0.2);
     }
 
     .flex-card.light-raised {
@@ -80,11 +99,11 @@
     }
 
     .flex-card.light-bordered {
-        border: 1px solid #e5e5e5 !important;
+        border: 1px solid #e5e5e5;
     }
 
     .flex-card .content {
-        padding: 20px !important;
+        padding: 20px;
     }
 
     .flex-card .icon-header .notification {
@@ -110,7 +129,7 @@
     }
 
     .flex-card.card-overflow {
-        overflow: visible !important;
+        overflow: visible;
     }
 
 </style>

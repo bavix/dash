@@ -25,6 +25,6 @@ class Netatalk extends Package
     /**
      * @var array
      */
-    protected $icon = ['fas', 'hdd'];
+    protected $icon = ['fal', 'hdd'];
 
 }

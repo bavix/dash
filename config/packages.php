@@ -12,11 +12,12 @@ return [
 
     \App\Services\Packages\XiaomiPadavan::class => [
         'enable' => env('SERVICE_XIAOMI_PADAVAN_ENABLE', false),
-        'address' => env('SERVICE_XIAOMI_PADAVAN_ADDRESS', 'http://192.168.1.1')
+        'url' => env('SERVICE_XIAOMI_PADAVAN_URL', 'http://192.168.1.1'),
     ],
 
     \App\Services\Packages\Plex::class => [
         'enable' => env('SERVICE_PLEX_ENABLE', false),
+        'url' => env('SERVICE_PLEX_URL', 'http://127.0.0.1:32400'),
     ],
 
     \App\Services\Packages\Netatalk::class => [
@@ -29,10 +30,12 @@ return [
 
     \App\Services\Packages\Transmission::class => [
         'enable' => env('SERVICE_TRANSMISSION_ENABLE', false),
+        'url' => env('SERVICE_TRANSMISSION_URL', 'http://127.0.0.1:9091'),
     ],
 
     \App\Services\Packages\GitlabDocker::class => [
         'enable' => env('SERVICE_GITLAB_DOCKER_ENABLE', false),
+        'url' => env('SERVICE_GITLAB_DOCKER_URL', 'http://127.0.0.1:8080'),
     ],
 
     \App\Services\Packages\NetData::class => [

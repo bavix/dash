@@ -1,15 +1,15 @@
 
 .flex-card .icon-header .notification[data-v-b9bc2c0a] {
-    box-shadow: 0 14px 26px -12px rgba(0,209,178,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,209,178,0.2) !important;
+    box-shadow: 0 14px 26px -12px rgba(0,209,178,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,209,178,0.2);
 }
 .flex-card.light-raised[data-v-b9bc2c0a] {
     box-shadow: 0 3px 10px 4px rgba(0,0,0,0.04);
 }
 .flex-card.light-bordered[data-v-b9bc2c0a] {
-    border: 1px solid #e5e5e5 !important;
+    border: 1px solid #e5e5e5;
 }
 .flex-card .content[data-v-b9bc2c0a] {
-    padding: 20px !important;
+    padding: 20px;
 }
 .flex-card .icon-header .notification[data-v-b9bc2c0a] {
     padding: 15px 22px 15px 22px;
@@ -32,7 +32,7 @@
     transition: all 0.5s;
 }
 .flex-card.card-overflow[data-v-b9bc2c0a] {
-    overflow: visible !important;
+    overflow: visible;
 }
 
 

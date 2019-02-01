@@ -25,6 +25,6 @@ class NetData extends Package
     /**
      * @var array
      */
-    protected $icon = ['fas', 'chart-bar'];
+    protected $icon = ['fal', 'chart-bar'];
 
 }
