@@ -79,14 +79,6 @@ abstract class Package implements ServiceInterface
     }
 
     /**
-     * @param int $order
-     */
-    public function setOrder(int $order): void
-    {
-        $this->order = $order;
-    }
-
-    /**
      * @return bool
      */
     public function active(): bool

@@ -6,11 +6,6 @@ interface ServiceInterface
 {
 
     /**
-     * @param int $order
-     */
-    public function setOrder(int $order): void;
-
-    /**
      * @return bool
      */
     public function stop(): bool;
