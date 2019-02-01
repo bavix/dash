@@ -27,7 +27,9 @@ return [
         'enable' => env('SERVICE_SAMBA_ENABLE', false),
     ],
 
-    // transmission
+    \App\Services\Packages\Transmission::class => [
+        'enable' => env('SERVICE_TRANSMISSION_ENABLE', false),
+    ],
 
     \App\Services\Packages\GitlabDocker::class => [
         'enable' => env('SERVICE_GITLAB_DOCKER_ENABLE', false),
