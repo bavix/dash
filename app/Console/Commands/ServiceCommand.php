@@ -2,7 +2,7 @@
 
 namespace App\Console\Commands;
 
-use App\Jobs\ServiceCheckJob;
+use App\Jobs\InspectorJob;
 use Illuminate\Console\Command;
 
 class ServiceCommand extends Command
@@ -25,7 +25,7 @@ class ServiceCommand extends Command
      */
     public function handle(): void
     {
-        dispatch(new ServiceCheckJob());
+        dispatch(new InspectorJob());
     }
 
 }

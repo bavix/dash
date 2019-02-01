@@ -14,6 +14,6 @@ use Illuminate\Http\Request;
 */
 
 Route::get('/services', function (Request $request) {
-    dispatch(new \App\Jobs\ServiceCheckJob());
+    dispatch(new \App\Jobs\InspectorJob());
     return response()->noContent();
 });
