@@ -39,7 +39,9 @@ return [
         'enable' => env('SERVICE_NETDATA_ENABLE', false),
     ],
 
-    // teamviewer
+    \App\Services\Packages\TeamViewer::class => [
+        'enable' => env('SERVICE_TEAMVIEWER_ENABLE', false),
+    ],
 
     \App\Services\Packages\OpenSSH::class => [
         'enable' => env('SERVICE_OPENSSH_ENABLE', false),

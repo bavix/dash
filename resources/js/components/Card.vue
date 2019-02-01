@@ -36,7 +36,7 @@
     import { faLinux, faGitlab } from '@fortawesome/free-brands-svg-icons'
     import { faChartBar, faHdd, faCircle, faVideo, faCloudDownloadAlt, faDownload } from '@fortawesome/pro-solid-svg-icons'
     // import { faCoffee } from '@fortawesome/pro-regular-svg-icons'
-    import { faTerminal, faRocket, faWifi } from '@fortawesome/pro-light-svg-icons'
+    import { faTerminal, faRocket, faWifi, faUserShield } from '@fortawesome/pro-light-svg-icons'
 
     library.add(faLinux)
     library.add(faGitlab)
@@ -49,6 +49,7 @@
     library.add(faCloudDownloadAlt)
     library.add(faWifi)
     library.add(faDownload)
+    library.add(faUserShield)
 
     export default {
         props: {
