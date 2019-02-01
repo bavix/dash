@@ -2,7 +2,7 @@
     <div class="animated fadeIn flex-card card-overflow light-bordered light-raised">
         <div class="icon-header">
             <span class="notification" :class="service.color">
-                <font-awesome-icon :icon="service.icon" />
+                <font-awesome-icon :icon="service.icon"/>
             </span>
             <!--<i class="notification" :class="[service.icon, service.color]"></i>-->
         </div>
@@ -10,20 +10,20 @@
             <div class="card-title has-text-right">
                 <span class="subtitle is-5" v-text="service.title"></span>
                 <span class="icon" :class="classStatusService">
-                    <font-awesome-icon icon="circle" />
+                    <font-awesome-icon icon="circle"/>
                 </span>
             </div>
 
             <div class="card-content">
                 <div class="buttons is-pulled-right">
                     <a v-show="service.url" target="_blank" :href="service.url" class="button">
-                        <font-awesome-icon icon="link" />
+                        <font-awesome-icon icon="link"/>
                     </a>
-                    <button class="button is-success">
-                        <font-awesome-icon icon="circle" />
+                    <button v-on:click="showAlert" class="button is-success">
+                        <font-awesome-icon icon="circle"/>
                     </button>
-                    <button class="button is-warning">
-                        <font-awesome-icon icon="undo-alt" />
+                    <button v-on:click="showAlert" class="button is-warning">
+                        <font-awesome-icon icon="undo-alt"/>
                     </button>
                 </div>
             </div>
@@ -32,22 +32,25 @@
 </template>
 
 <script>
-    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+    import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
-    import { library } from '@fortawesome/fontawesome-svg-core'
-    import { faLinux, faGitlab } from '@fortawesome/free-brands-svg-icons'
-    import { faCircle, faUndoAlt, faLink } from '@fortawesome/pro-solid-svg-icons'
+    import {library} from '@fortawesome/fontawesome-svg-core'
+    import {faGitlab, faLinux} from '@fortawesome/free-brands-svg-icons'
+    import {faCircle, faLink, faUndoAlt} from '@fortawesome/pro-solid-svg-icons'
     import {
         faChartBar,
-        faTerminal,
-        faHdd,
-        faRocket,
-        faWifi,
-        faVideo,
         faCloudDownloadAlt,
         faDownload,
-        faUserShield
+        faHdd,
+        faRocket,
+        faTerminal,
+        faUserShield,
+        faVideo,
+        faWifi
     } from '@fortawesome/pro-light-svg-icons'
+
+    import Vue from 'vue';
+    import VueSweetalert2 from 'vue-sweetalert2';
 
     library.add(faLinux);
     library.add(faGitlab);
@@ -64,6 +67,8 @@
     library.add(faUndoAlt);
     library.add(faLink);
 
+    Vue.use(VueSweetalert2);
+
     export default {
         props: {
             service: Object
@@ -78,6 +83,11 @@
                     'has-text-success': this.service.active,
                 }
             }
+        },
+        methods: {
+            showAlert() {
+                this.$swal('Hello Vue world!!!');
+            }
         }
     }
 </script>
@@ -90,11 +100,11 @@
     }
 
     .flex-card .icon-header .notification {
-        box-shadow: 0 14px 26px -12px rgba(0,209,178,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,209,178,0.2);
+        box-shadow: 0 14px 26px -12px rgba(0, 209, 178, 0.42), 0 4px 23px 0 rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 209, 178, 0.2);
     }
 
     .flex-card.light-raised {
-        box-shadow: 0 3px 10px 4px rgba(0,0,0,0.04);
+        box-shadow: 0 3px 10px 4px rgba(0, 0, 0, 0.04);
     }
 
     .flex-card.light-bordered {
