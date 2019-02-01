@@ -107,9 +107,14 @@ abstract class Package implements ServiceInterface
 
     /**
      * @return bool
+     * @throws
      */
     public function start(): bool
     {
+        if (!$this->startAllowed) {
+            throw new \RuntimeException('This service cannot be started.');
+        }
+
         /**
          * @var array $apps
          */
@@ -124,9 +129,14 @@ abstract class Package implements ServiceInterface
 
     /**
      * @return bool
+     * @throws
      */
     public function stop(): bool
     {
+        if (!$this->stopAllowed) {
+            throw new \RuntimeException('This service cannot be stopped.');
+        }
+
         /**
          * @var array $apps
          */
@@ -141,9 +151,14 @@ abstract class Package implements ServiceInterface
 
     /**
      * @return bool
+     * @throws
      */
     public function restart(): bool
     {
+        if (!$this->restartAllowed) {
+            throw new \RuntimeException('This service cannot be restarted.');
+        }
+
         /**
          * @var array $apps
          */

@@ -40,14 +40,6 @@ class Linux extends Package
     /**
      * @return bool
      */
-    public function start(): bool
-    {
-        return false;
-    }
-
-    /**
-     * @return bool
-     */
     public function stop(): bool
     {
         \exec('shutdown -P now');
