@@ -14,23 +14,17 @@
                 </span>
             </div>
 
-            <div class="card-content" style="padding-right: 0; padding-left: 0; padding-bottom: 0">
-                <div class="columns">
-                    <div class="column">
-                        <a v-show="service.url" target="_blank" :href="service.url" class="button">
-                            <font-awesome-icon icon="link" />
-                        </a>
-                    </div>
-                    <div class="column">
-                        <div class="buttons is-pulled-right">
-                            <button class="button is-success">
-                                <font-awesome-icon icon="circle" />
-                            </button>
-                            <button class="button is-warning">
-                                <font-awesome-icon icon="undo-alt" />
-                            </button>
-                        </div>
-                    </div>
+            <div class="card-content">
+                <div class="buttons is-pulled-right">
+                    <a v-show="service.url" target="_blank" :href="service.url" class="button">
+                        <font-awesome-icon icon="link" />
+                    </a>
+                    <button class="button is-success">
+                        <font-awesome-icon icon="circle" />
+                    </button>
+                    <button class="button is-warning">
+                        <font-awesome-icon icon="undo-alt" />
+                    </button>
                 </div>
             </div>
         </div>
@@ -89,6 +83,11 @@
 </script>
 
 <style scoped>
+
+    .card-content {
+        padding-left: 0;
+        padding-right: 0;
+    }
 
     .flex-card .icon-header .notification {
         box-shadow: 0 14px 26px -12px rgba(0,209,178,0.42),0 4px 23px 0 rgba(0,0,0,0.12),0 8px 10px -5px rgba(0,209,178,0.2);

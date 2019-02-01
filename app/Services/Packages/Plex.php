@@ -10,7 +10,7 @@ class Plex extends Package
     /**
      * @var string
      */
-    protected $title = 'Plex Media Server';
+    protected $title = 'Plex';
 
     /**
      * @var array
