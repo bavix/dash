@@ -21,7 +21,7 @@ class ServiceCheckJob implements ShouldQueue
     public function handle(): void
     {
         foreach (getServices() as $service) {
-            dispatch(new PackageInspectionJob($service));
+            dispatch(new ActivityJob($service));
         }
     }
 
