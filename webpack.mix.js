@@ -13,4 +13,15 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js');
 mix.sass('resources/sass/app.scss', 'public/css');
-mix.options({ extractVueStyles: true });
+mix.options({
+    extractVueStyles: true,
+    postCss: [
+        require('autoprefixer')({
+            browsers: ['> 1%', 'iOS >=9'],
+        })
+    ],
+});
+
+if (mix.inProduction()) {
+    mix.version();
+}
