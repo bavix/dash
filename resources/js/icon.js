@@ -2,7 +2,7 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faGitlab, faLinux} from '@fortawesome/free-brands-svg-icons'
-import {faCircle, faLink, faUndoAlt} from '@fortawesome/pro-solid-svg-icons'
+import {faCircle, faPlay, faPowerOff, faLink, faUndoAlt} from '@fortawesome/pro-solid-svg-icons'
 import {
     faChartBar,
     faCloudDownloadAlt,
@@ -29,5 +29,8 @@ library.add(faDownload);
 library.add(faUserShield);
 library.add(faUndoAlt);
 library.add(faLink);
+
+library.add(faPlay)
+library.add(faPowerOff)
 
 export default FontAwesomeIcon;

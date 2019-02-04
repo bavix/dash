@@ -23,8 +23,13 @@ if (!\function_exists('getServices')) {
             $order = 0;
             $services = [];
             foreach (getPackages() as $class => $options) {
+                $options['enable'] = $options['enable'] ?? false;
                 $options['order'] = $order;
                 $order++;
+
+                if (!$options['enable']) {
+                    continue;
+                }
 
                 /**
                  * @var \App\Services\ServiceInterface $service

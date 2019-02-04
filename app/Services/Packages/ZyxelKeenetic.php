@@ -4,7 +4,7 @@ namespace App\Services\Packages;
 
 use App\Services\Router;
 
-class ZyxelKeeneticExtra2015 extends Router
+class ZyxelKeenetic extends Router
 {
 
     /**

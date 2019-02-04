@@ -4,23 +4,22 @@
             <span class="notification" :class="service.color">
                 <font-awesome-icon :icon="service.icon"/>
             </span>
-            <!--<i class="notification" :class="[service.icon, service.color]"></i>-->
         </div>
         <div class="content">
             <div class="card-title has-text-right">
                 <span class="subtitle is-5" v-text="service.title"></span>
-                <span class="icon" :class="classStatusService">
+                <span class="icon" :class="classStatusSpan">
                     <font-awesome-icon icon="circle"/>
                 </span>
             </div>
 
             <div class="card-content">
                 <div class="buttons is-pulled-right">
-                    <a v-show="service.url" target="_blank" :href="service.url" class="button">
-                        <font-awesome-icon icon="link"/>
-                    </a>
-                    <button v-on:click="showAlert" class="button is-success">
-                        <font-awesome-icon icon="circle"/>
+                    <!--<a v-show="service.url" target="_blank" :href="service.url" class="button">-->
+                        <!--<font-awesome-icon icon="link"/>-->
+                    <!--</a>-->
+                    <button v-on:click="showAlert" class="button" :class="classStatusButton">
+                        <font-awesome-icon :icon="service.active ? 'power-off' : 'play'"/>
                     </button>
                     <button v-on:click="showAlert" class="button is-warning">
                         <font-awesome-icon icon="undo-alt"/>
@@ -46,12 +45,18 @@
             FontAwesomeIcon,
         },
         computed: {
-            classStatusService() {
+            classStatusSpan() {
                 return {
                     'has-text-danger': !this.service.active,
                     'has-text-success': this.service.active,
                 }
-            }
+            },
+            classStatusButton() {
+                return {
+                    'is-danger': this.service.active,
+                    'is-success': !this.service.active,
+                }
+            },
         },
         methods: {
             showAlert() {

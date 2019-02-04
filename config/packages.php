@@ -15,6 +15,11 @@ return [
         'url' => env('SERVICE_XIAOMI_PADAVAN_URL', 'http://192.168.1.1'),
     ],
 
+    \App\Services\Packages\ZyxelKeenetic::class => [
+        'enable' => env('SERVICE_ZYXEL_KEENETIC_ENABLE', false),
+        'url' => env('SERVICE_ZYXEL_KEENETIC_URL', 'http://192.168.1.1'),
+    ],
+
     \App\Services\Packages\Plex::class => [
         'enable' => env('SERVICE_PLEX_ENABLE', false),
         'url' => env('SERVICE_PLEX_URL', 'http://127.0.0.1:32400'),
