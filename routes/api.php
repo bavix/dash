@@ -19,21 +19,21 @@ Route::get('/services', function (Request $request) {
     return response()->noContent();
 });
 
-Route::post('/start', function (Request $request) {
+Route::post('/service/start', function (Request $request) {
     $class = $request->input('class');
     $service = getService($class);
     dispatch(new \App\Jobs\EnableJob($service));
     return response()->noContent();
 });
 
-Route::post('/stop', function (Request $request) {
+Route::post('/service/stop', function (Request $request) {
     $class = $request->input('class');
     $service = getService($class);
     dispatch(new \App\Jobs\DisableJob($service));
     return response()->noContent();
 });
 
-Route::post('/restart', function (Request $request) {
+Route::post('/service/restart', function (Request $request) {
     $class = $request->input('class');
     $service = getService($class);
     dispatch(new \App\Jobs\RebootJob($service));

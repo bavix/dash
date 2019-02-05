@@ -37,17 +37,15 @@ abstract class Docker extends Package
      */
     public function start(): bool
     {
-        if (!$this->startAllowed) {
-            throw new \RuntimeException('This service cannot be started.');
-        }
-
-        /**
-         * @var array $apps
-         */
-        foreach ($this->apps as $apps) {
-            foreach ($apps as $app) {
-                $app = \json_encode($app);
-                \exec('docker start ' . $app);
+        if ($this->startAllowed) {
+            /**
+             * @var array $apps
+             */
+            foreach ($this->apps as $apps) {
+                foreach ($apps as $app) {
+                    $app = \json_encode($app);
+                    \exec('docker start ' . $app);
+                }
             }
         }
 
@@ -59,17 +57,15 @@ abstract class Docker extends Package
      */
     public function stop(): bool
     {
-        if (!$this->stopAllowed) {
-            throw new \RuntimeException('This service cannot be stopped.');
-        }
-
-        /**
-         * @var array $apps
-         */
-        foreach ($this->apps as $apps) {
-            foreach ($apps as $app) {
-                $app = \json_encode($app);
-                \exec('nohup docker stop ' . $app . ' >/dev/null 2>&1 &');
+        if ($this->stopAllowed) {
+            /**
+             * @var array $apps
+             */
+            foreach ($this->apps as $apps) {
+                foreach ($apps as $app) {
+                    $app = \json_encode($app);
+                    \exec('nohup docker stop ' . $app . ' >/dev/null 2>&1 &');
+                }
             }
         }
 
@@ -81,17 +77,15 @@ abstract class Docker extends Package
      */
     public function restart(): bool
     {
-        if (!$this->restartAllowed) {
-            throw new \RuntimeException('This service cannot be restarted.');
-        }
-
-        /**
-         * @var array $apps
-         */
-        foreach ($this->apps as $apps) {
-            foreach ($apps as $app) {
-                $app = \json_encode($app);
-                \exec('docker restart ' . $app);
+        if ($this->restartAllowed) {
+            /**
+             * @var array $apps
+             */
+            foreach ($this->apps as $apps) {
+                foreach ($apps as $app) {
+                    $app = \json_encode($app);
+                    \exec('docker restart ' . $app);
+                }
             }
         }
 

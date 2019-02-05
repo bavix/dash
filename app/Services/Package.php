@@ -111,16 +111,14 @@ abstract class Package implements ServiceInterface
      */
     public function start(): bool
     {
-        if (!$this->startAllowed) {
-            throw new \RuntimeException('This service cannot be started.');
-        }
-
-        /**
-         * @var array $apps
-         */
-        foreach ($this->apps as $apps) {
-            foreach ($apps as $app) {
-                \systemCtl('stop', $app);
+        if ($this->startAllowed) {
+            /**
+             * @var array $apps
+             */
+            foreach ($this->apps as $apps) {
+                foreach ($apps as $app) {
+                    \systemCtl('start', $app);
+                }
             }
         }
 
@@ -133,16 +131,14 @@ abstract class Package implements ServiceInterface
      */
     public function stop(): bool
     {
-        if (!$this->stopAllowed) {
-            throw new \RuntimeException('This service cannot be stopped.');
-        }
-
-        /**
-         * @var array $apps
-         */
-        foreach ($this->apps as $apps) {
-            foreach ($apps as $app) {
-                \systemCtl('start', $app);
+        if ($this->stopAllowed) {
+            /**
+             * @var array $apps
+             */
+            foreach ($this->apps as $apps) {
+                foreach ($apps as $app) {
+                    \systemCtl('stop', $app);
+                }
             }
         }
 
@@ -155,16 +151,14 @@ abstract class Package implements ServiceInterface
      */
     public function restart(): bool
     {
-        if (!$this->restartAllowed) {
-            throw new \RuntimeException('This service cannot be restarted.');
-        }
-
-        /**
-         * @var array $apps
-         */
-        foreach ($this->apps as $apps) {
-            foreach ($apps as $app) {
-                \systemCtl('restart', $app);
+        if ($this->restartAllowed) {
+            /**
+             * @var array $apps
+             */
+            foreach ($this->apps as $apps) {
+                foreach ($apps as $app) {
+                    \systemCtl('restart', $app);
+                }
             }
         }
 
@@ -177,6 +171,7 @@ abstract class Package implements ServiceInterface
     public function toArray(): array
     {
         return [
+            'submitting' => false,
             'key' => static::class,
             'title' => $this->title,
             'description' => $this->description,

@@ -18,10 +18,10 @@
                     <!--<a v-show="service.url" target="_blank" :href="service.url" class="button">-->
                         <!--<font-awesome-icon icon="link"/>-->
                     <!--</a>-->
-                    <button v-on:click="showAlert" class="button" :class="classStatusButton">
+                    <button v-on:click="toggle" class="button" :class="buttonToggleClass" :disabled="submitting">
                         <font-awesome-icon :icon="service.active ? 'power-off' : 'play'"/>
                     </button>
-                    <button v-on:click="showAlert" class="button is-warning">
+                    <button v-on:click="restart" class="button is-warning" :class="buttonRestartClass" :disabled="submitting">
                         <font-awesome-icon icon="undo-alt"/>
                     </button>
                 </div>
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+    import axios from 'axios'
     import Vue from 'vue';
     import VueSweetalert2 from 'vue-sweetalert2';
     import FontAwesomeIcon from '../icon';
@@ -51,14 +52,41 @@
                     'has-text-success': this.service.active,
                 }
             },
-            classStatusButton() {
+            buttonToggleClass() {
                 return {
+                    'is-hidden': !(
+                        (this.service.active && this.service.stopAllowed) ||
+                        (!this.service.active && this.service.startAllowed)
+                    ),
+                    'is-loading': this.submitting === 1,
                     'is-danger': this.service.active,
                     'is-success': !this.service.active,
                 }
             },
+            buttonRestartClass() {
+                return {
+                    'is-hidden': !this.service.restartAllowed,
+                    'is-loading': this.submitting === 2,
+                }
+            },
+            submitting() {
+                return this.service.submitting
+            }
         },
         methods: {
+            toggle() {
+                this.service.submitting = 1;
+                this.systemCtl(this.service.active ? 'stop' : 'start')
+            },
+            restart() {
+                this.service.submitting = 2;
+                this.systemCtl('restart')
+            },
+            systemCtl(state) {
+                axios.post('/api/service/' + state, {
+                    class: this.service.key
+                });
+            },
             showAlert() {
                 this.$swal('Hello Vue world!!!');
             }

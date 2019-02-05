@@ -47,12 +47,11 @@ if (!\function_exists('getService')) {
      * @param string $class
      * @return \App\Services\ServiceInterface
      */
-    function getService(string $class): \App\Services\ServiceInterface
+    function getService(?string $class): \App\Services\ServiceInterface
     {
+        abort_if(!class_exists($class), 400, 'Adapter not found');
         $services = getServices();
-        if (empty($services[$class])) {
-            throw new RuntimeException('Service not found');
-        }
+        abort_if(empty($services[$class]), 400, 'Service not found');
         return $services[$class];
     }
 }
