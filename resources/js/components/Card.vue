@@ -21,7 +21,7 @@
                     <button v-on:click="toggle" class="button" :class="buttonToggleClass" :disabled="submitting">
                         <font-awesome-icon :icon="service.active ? 'power-off' : 'play'"/>
                     </button>
-                    <button v-on:click="restart" class="button is-warning" :class="buttonRestartClass" :disabled="submitting">
+                    <button v-on:click="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.active || submitting">
                         <font-awesome-icon icon="undo-alt"/>
                     </button>
                 </div>
