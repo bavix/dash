@@ -3,6 +3,7 @@
 namespace App\Console\Commands;
 
 use App\Jobs\InspectorJob;
+use Carbon\Carbon;
 use Illuminate\Console\Command;
 
 class ServiceCommand extends Command
@@ -26,6 +27,8 @@ class ServiceCommand extends Command
     public function handle(): void
     {
         dispatch(new InspectorJob());
+        dispatch(new InspectorJob())
+            ->delay(Carbon::now()->addSeconds(30));
     }
 
 }
