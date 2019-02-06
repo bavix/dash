@@ -55,6 +55,10 @@ return [
         'enable' => env('SERVICE_NETDATA_ENABLE', false),
     ],
 
+    \App\Services\Packages\Beanstalkd::class => [
+        'enable' => env('SERVICE_BEANSTALKD_ENABLE', false),
+    ],
+
     \App\Services\Packages\X2Go::class => [
         'enable' => env('SERVICE_X2GO_ENABLE', false),
     ],

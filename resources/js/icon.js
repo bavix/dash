@@ -15,6 +15,7 @@ import {
     faClock,
     faBrowser,
     faHexagon,
+    faChessQueen,
     faWifi
 } from '@fortawesome/pro-light-svg-icons'
 
@@ -33,10 +34,11 @@ library.add(faWifi);
 library.add(faDownload);
 library.add(faUserShield);
 library.add(faUndoAlt);
+library.add(faChessQueen);
 library.add(faHexagon);
 library.add(faLink);
 
-library.add(faPlay)
-library.add(faPowerOff)
+library.add(faPlay);
+library.add(faPowerOff);
 
 export default FontAwesomeIcon;
