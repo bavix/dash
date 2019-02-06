@@ -4,10 +4,10 @@
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
                     <img alt="Dashboard" src="/svg/dashboard.svg">
-                    <span class="dash subtitle">Dashboard</span>
+                    <span class="dash subtitle">Media Server</span>
                 </a>
 
-                <a role="button" class="navbar-burger burger" aria-label="menu" aria-expanded="false" v-on:click.prevent="navbarBurger">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" v-on:click.prevent="navbarBurger">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -18,7 +18,13 @@
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
-                            <a v-for="service in orderedServices" v-show="service.url" :href="service.url" target="_blank" class="button" :class="service.color">
+                            <a v-for="service in orderedServices"
+                               v-bind:key="service.key"
+                               v-show="service.url"
+                               :href="service.url"
+                               target="_blank"
+                               class="button"
+                               :class="service.color">
                                 <font-awesome-icon :icon="service.icon"/>
                             </a>
                         </div>

@@ -15,7 +15,7 @@ class Cron extends Package
     /**
      * @var array
      */
-    protected $apps = [['cron']];
+    protected $apps = [['cron'], ['cronie']];
 
     /**
      * @var string

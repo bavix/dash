@@ -14,6 +14,7 @@ import {
     faVideo,
     faClock,
     faBrowser,
+    faHexagon,
     faWifi
 } from '@fortawesome/pro-light-svg-icons'
 
@@ -32,6 +33,7 @@ library.add(faWifi);
 library.add(faDownload);
 library.add(faUserShield);
 library.add(faUndoAlt);
+library.add(faHexagon);
 library.add(faLink);
 
 library.add(faPlay)
