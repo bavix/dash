@@ -6,6 +6,10 @@ return [
         'enable' => env('SERVICE_LINUX_ENABLE', false),
     ],
 
+    \App\Services\Packages\Cron::class => [
+        'enable' => env('SERVICE_CRON_ENABLE', false),
+    ],
+
     \App\Services\Packages\Supervisor::class => [
         'enable' => env('SERVICE_SUPERVISOR_ENABLE', false),
     ],
@@ -23,6 +27,10 @@ return [
     \App\Services\Packages\Plex::class => [
         'enable' => env('SERVICE_PLEX_ENABLE', false),
         'url' => env('SERVICE_PLEX_URL', 'http://127.0.0.1:32400'),
+    ],
+
+    \App\Services\Packages\Nginx::class => [
+        'enable' => env('SERVICE_NGINX_ENABLE', false),
     ],
 
     \App\Services\Packages\Netatalk::class => [

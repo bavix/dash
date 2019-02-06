@@ -20,7 +20,7 @@ class Nginx extends Package
     /**
      * @var string
      */
-    protected $color = 'is-warning';
+    protected $color = 'is-link';
 
     /**
      * @var array

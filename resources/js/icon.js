@@ -12,6 +12,8 @@ import {
     faTerminal,
     faUserShield,
     faVideo,
+    faClock,
+    faBrowser,
     faWifi
 } from '@fortawesome/pro-light-svg-icons'
 
@@ -22,6 +24,8 @@ library.add(faHdd);
 library.add(faTerminal);
 library.add(faCircle);
 library.add(faVideo);
+library.add(faClock);
+library.add(faBrowser);
 library.add(faRocket);
 library.add(faCloudDownloadAlt);
 library.add(faWifi);
