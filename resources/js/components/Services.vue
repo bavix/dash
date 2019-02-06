@@ -1,7 +1,7 @@
 <template>
     <div class="hero-body">
         <div class="container">
-            <div v-if="services.length" class="columns is-multiline">
+            <div v-if="orderedServices.length" class="columns is-multiline">
                 <div v-for="service in orderedServices" :key="service.key" class="column is-4-tablet is-3-desktop">
                     <card :service="service"></card>
                 </div>
@@ -12,39 +12,27 @@
 </template>
 
 <script>
-    import orderBy from 'lodash/orderBy'
     import Card from './Card'
     import axios from 'axios'
+    import store from '../store'
+    import { mapState, mapMutations, mapGetters } from 'vuex'
 
     export default {
+        store,
         components: {
             Card,
         },
-        data() {
-            return {
-                services: [],
-            }
-        },
         computed: {
-            orderedServices() {
-                return orderBy(this.services, 'order')
-            }
+            ...mapGetters(['orderedServices']),
+        },
+        methods: {
+            ...mapMutations(['flushServices', 'updateService']),
         },
         mounted() {
             window.Echo.channel('availability')
                 .listen('Availability', (e) => {
-                    const service = e.service;
-
-                    let index = this.services.findIndex((value) => {
-                        return value.key === service.key;
-                    });
-
-                    this.$set(this.services, index >= 0 ? index : this.services.length, service);
+                    this.updateService(e.service);
                 });
-
-            window.Echo.connector.socket.on('disconnect', () => {
-                this.services = [];
-            });
 
             window.Echo.connector.socket.on('connect', () => {
                 axios.head('/api/services');
@@ -53,6 +41,8 @@
             window.Echo.connector.socket.on('reconnecting', () => {
                 axios.head('/api/services');
             });
+
+            window.Echo.connector.socket.on('disconnect', this.flushServices);
         }
     }
 </script>

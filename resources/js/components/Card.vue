@@ -15,9 +15,6 @@
 
             <div class="card-content">
                 <div class="buttons is-pulled-right">
-                    <!--<a v-show="service.url" target="_blank" :href="service.url" class="button">-->
-                        <!--<font-awesome-icon icon="link"/>-->
-                    <!--</a>-->
                     <button v-on:click="toggle" class="button" :class="buttonToggleClass" :disabled="submitting">
                         <font-awesome-icon :icon="service.active ? 'power-off' : 'play'"/>
                     </button>
