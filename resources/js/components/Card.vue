@@ -29,13 +29,16 @@
 
 <script>
     import axios from 'axios'
-    import Vue from 'vue';
-    import VueSweetalert2 from 'vue-sweetalert2';
-    import FontAwesomeIcon from '../icon';
+    import Vue from 'vue'
+    import VueSweetalert2 from 'vue-sweetalert2'
+    import FontAwesomeIcon from '../icon'
+    import store from '../store'
+    import { mapMutations } from 'vuex'
 
     Vue.use(VueSweetalert2);
 
     export default {
+        store,
         props: {
             service: Object
         },
@@ -71,18 +74,19 @@
             }
         },
         methods: {
+            ...mapMutations(['sent']),
             toggle() {
-                this.service.submitting = 1;
+                this.sent({key: this.service.key, submitting: 1})
                 this.systemCtl(this.service.active ? 'stop' : 'start')
             },
             restart() {
-                this.service.submitting = 2;
+                this.sent({key: this.service.key, submitting: 2})
                 this.systemCtl('restart')
             },
             systemCtl(state) {
                 axios.post('/api/service/' + state, {
                     class: this.service.key
-                });
+                })
             },
             showAlert() {
                 this.$swal('Hello Vue world!!!');
