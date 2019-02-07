@@ -37,6 +37,10 @@
 
     Vue.use(VueSweetalert2);
 
+    const STATE_START = 'start'
+    const STATE_STOP = 'stop'
+    const STATE_RESTART = 'restart'
+
     export default {
         store,
         props: {
@@ -76,20 +80,30 @@
         methods: {
             ...mapMutations(['sent']),
             toggle() {
-                this.sent({key: this.service.key, submitting: 1})
-                this.systemCtl(this.service.active ? 'stop' : 'start')
+                this.systemCtl(1, this.service.active ? STATE_STOP : STATE_START)
             },
             restart() {
-                this.sent({key: this.service.key, submitting: 2})
-                this.systemCtl('restart')
+                this.systemCtl(2, STATE_RESTART)
             },
-            systemCtl(state) {
+            async systemCtl(submitting, state) {
+                if (state !== STATE_START && this.service.warning) {
+                    const result = await this.warning();
+                    if (!result.value) {
+                        return;
+                    }
+                }
+
+                this.sent({ key: this.service.key, submitting });
                 axios.post('/api/service/' + state, {
                     class: this.service.key
                 })
             },
-            showAlert() {
-                this.$swal('Hello Vue world!!!');
+            async warning() {
+                return this.$swal({
+                    text: 'Вы действительно хотите совершить эту операцию?',
+                    type: 'warning',
+                    showCancelButton: true,
+                })
             }
         }
     }
