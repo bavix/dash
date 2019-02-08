@@ -23,8 +23,7 @@
                                v-show="service.url"
                                :href="service.url"
                                target="_blank"
-                               class="button"
-                               :class="service.color">
+                               class="button is-dark">
                                 <font-awesome-icon :icon="service.icon"/>
                             </a>
                         </div>
