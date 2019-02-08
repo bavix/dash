@@ -3,7 +3,7 @@
         <div class="container">
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
-                    <img alt="Dashboard" src="/svg/dashboard.svg">
+                    <font-awesome-icon :icon="['fal','tachometer-alt']" size="2x"/>
                     <span class="dash subtitle">Media Server</span>
                 </a>
 
