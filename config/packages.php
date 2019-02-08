@@ -53,6 +53,7 @@ return [
 
     \App\Services\Packages\NetData::class => [
         'enable' => env('SERVICE_NETDATA_ENABLE', false),
+        'url' => env('SERVICE_NETDATA_URL', 'http://127.0.0.1:19999'),
     ],
 
     \App\Services\Packages\Beanstalkd::class => [
