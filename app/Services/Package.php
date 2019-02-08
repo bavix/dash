@@ -91,7 +91,7 @@ abstract class Package implements ServiceInterface
             foreach ($apps as $app) {
                 $output = \systemCtl('is-active', $app);
                 $status = $output[0] ?? 'inactive';
-                if ($status === 'inactive') {
+                if ($status !== 'active') {
                     $this->active = false;
                     break;
                 }
