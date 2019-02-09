@@ -23,7 +23,7 @@
         "cross-env": "^5.1",
         "laravel-mix": "^4.0.7",
         "lodash": "^4.17.5",
-        "babel-polyfill": "^6.26.0",
+        "promise-polyfill": "^8.1.0",
         "resolve-url-loader": "^2.3.1",
         "sass": "^1.17.0",
         "sass-loader": "^7.1.0",
