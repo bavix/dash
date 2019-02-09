@@ -51,6 +51,7 @@ abstract class Router extends Package
         static $guzzle;
         if (!$guzzle) {
             $guzzle = new Client([
+                'auth' => [$this->username, $this->password],
                 'base_uri' => $this->url,
                 'timeout'  => 10,
             ]);
@@ -65,10 +66,9 @@ abstract class Router extends Package
     public function active(): bool
     {
         try {
-            $response = $this->guzzle()->get('/', [
-                'auth' => [$this->username, $this->password]
-            ]);
-            $code = $response->getStatusCode();
+            $code = $this->guzzle()
+                ->get('/')
+                ->getStatusCode();
         } catch (ClientException $exception) {
             $code = $exception->getCode();
         }
