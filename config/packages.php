@@ -17,11 +17,15 @@ return [
     \App\Services\Packages\XiaomiPadavan::class => [
         'enable' => env('SERVICE_XIAOMI_PADAVAN_ENABLE', false),
         'url' => env('SERVICE_XIAOMI_PADAVAN_URL', 'http://192.168.1.1'),
+        'username' => env('SERVICE_XIAOMI_PADAVAN_USERNAME', 'admin'),
+        'password' => env('SERVICE_XIAOMI_PADAVAN_PASSWORD', 'admin'),
     ],
 
     \App\Services\Packages\ZyxelKeenetic::class => [
         'enable' => env('SERVICE_ZYXEL_KEENETIC_ENABLE', false),
         'url' => env('SERVICE_ZYXEL_KEENETIC_URL', 'http://192.168.1.1'),
+        'username' => env('SERVICE_ZYXEL_KEENETIC_USERNAME', 'admin'),
+        'password' => env('SERVICE_ZYXEL_KEENETIC_PASSWORD', 'admin'),
     ],
 
     \App\Services\Packages\Plex::class => [

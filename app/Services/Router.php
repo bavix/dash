@@ -34,6 +34,16 @@ abstract class Router extends Package
     protected $stopAllowed = false;
 
     /**
+     * @var string
+     */
+    protected $username;
+
+    /**
+     * @var string
+     */
+    protected $password;
+
+    /**
      * @return Client
      */
     protected function guzzle(): Client
@@ -55,14 +65,15 @@ abstract class Router extends Package
     public function active(): bool
     {
         try {
-            $response = $this->guzzle()->get('/');
+            $response = $this->guzzle()->get('/', [
+                ['auth' => [$this->username, $this->password]]
+            ]);
             $code = $response->getStatusCode();
         } catch (ClientException $exception) {
             $code = $exception->getCode();
         }
 
-        $this->active = \in_array($code, [200, 201, 401], true);
-
+        $this->active = $code === 200;
         return parent::active();
     }
 
