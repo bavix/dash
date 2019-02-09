@@ -3,6 +3,7 @@
 namespace App\Services;
 
 use GuzzleHttp\Client;
+use GuzzleHttp\Exception\ClientException;
 
 abstract class Router extends Package
 {
@@ -55,12 +56,14 @@ abstract class Router extends Package
      */
     public function active(): bool
     {
-        $response = $this->guzzle->get('/');
-        $this->active = \in_array(
-            $response->getStatusCode(),
-            [200, 201, 401],
-            true
-        );
+        try {
+            $response = $this->guzzle->get('/');
+            $code = $response->getStatusCode();
+        } catch (ClientException $exception) {
+            $code = $exception->getCode();
+        }
+
+        $this->active = \in_array($code, [200, 201, 401], true);
 
         return parent::active();
     }
