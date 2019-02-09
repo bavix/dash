@@ -29,13 +29,10 @@
 
 <script>
     import axios from 'axios'
-    import Vue from 'vue'
-    import VueSweetalert2 from 'vue-sweetalert2'
+    import Swal from 'sweetalert2'
     import FontAwesomeIcon from '../icon'
     import store from '../store'
     import { mapMutations } from 'vuex'
-
-    Vue.use(VueSweetalert2);
 
     const STATE_START = 'start'
     const STATE_STOP = 'stop'
@@ -85,22 +82,19 @@
             restart() {
                 this.systemCtl(2, STATE_RESTART)
             },
-            systemCtl(submitting, state) {
+            async systemCtl(submitting, state) {
                 if (state !== STATE_START && this.service.warning) {
-                    return this.$swal({
+                    const result = await Swal.fire({
                         text: 'Вы действительно хотите совершить эту операцию?',
                         type: 'warning',
                         showCancelButton: true,
-                    }).then(result => {
-                        if (result.value) {
-                            this._systemCtl(submitting, state)
-                        }
                     });
+
+                    if (!result.value) {
+                        return;
+                    }
                 }
 
-                this._systemCtl(submitting, state)
-            },
-            _systemCtl(submitting, state) {
                 this.sent({ key: this.service.key, submitting });
                 axios.post('/api/service/' + state, {
                     class: this.service.key

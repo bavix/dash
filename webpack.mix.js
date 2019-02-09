@@ -13,7 +13,7 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js');
 mix.sass('resources/sass/app.scss', 'public/css')
-    .extract(['vue', 'vuex', 'axios', 'lodash']);
+    .extract(['vue', 'vuex', 'axios', 'lodash', 'sweetalert2']);
 
 mix.options({
     extractVueStyles: true,
