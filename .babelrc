@@ -7,7 +7,8 @@
           "browsers": [
             "> 1%",
             "last 3 versions",
-            "ios >= 9"
+            "ios >= 9",
+            "ie >= 11"
           ]
         }
       }

@@ -15,12 +15,12 @@
 
             <div class="card-content">
                 <div class="buttons is-pulled-right">
-                    <a @click.prevent="toggle" class="button" :class="buttonToggleClass" :disabled="submitting">
+                    <button @click="toggle" class="button" :class="buttonToggleClass" :disabled="submitting">
                         <font-awesome-icon :icon="service.active ? 'power-off' : 'play'"/>
-                    </a>
-                    <a @click.prevent="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.active || submitting">
+                    </button>
+                    <button @click="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.active || submitting">
                         <font-awesome-icon icon="undo-alt"/>
-                    </a>
+                    </button>
                 </div>
             </div>
         </div>
@@ -77,12 +77,15 @@
         methods: {
             ...mapMutations(['sent']),
             toggle() {
+                console.debug('toggle')
                 this.systemCtl(1, this.service.active ? STATE_STOP : STATE_START)
             },
             restart() {
+                console.debug('restart')
                 this.systemCtl(2, STATE_RESTART)
             },
             async systemCtl(submitting, state) {
+                console.debug([submitting, state])
                 if (state !== STATE_START && this.service.warning) {
                     const result = await Swal.fire({
                         text: 'Вы действительно хотите совершить эту операцию?',
