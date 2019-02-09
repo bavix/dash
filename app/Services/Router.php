@@ -34,23 +34,19 @@ abstract class Router extends Package
     protected $stopAllowed = false;
 
     /**
-     * @var Client
-     */
-    protected $guzzle;
-
-    /**
      * @return Client
      */
     protected function guzzle(): Client
     {
-        if (!$this->guzzle) {
-            $this->guzzle = new Client([
+        static $guzzle;
+        if (!$guzzle) {
+            $guzzle = new Client([
                 'base_uri' => $this->url,
                 'timeout'  => 10,
             ]);
         }
 
-        return $this->guzzle;
+        return $guzzle;
     }
 
     /**
