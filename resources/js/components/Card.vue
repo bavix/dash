@@ -85,24 +85,25 @@
             restart() {
                 this.systemCtl(2, STATE_RESTART)
             },
-            async systemCtl(submitting, state) {
+            systemCtl(submitting, state) {
                 if (state !== STATE_START && this.service.warning) {
-                    const result = await this.warning();
-                    if (!result.value) {
-                        return;
-                    }
+                    return this.$swal({
+                        text: 'Вы действительно хотите совершить эту операцию?',
+                        type: 'warning',
+                        showCancelButton: true,
+                    }).then(result => {
+                        if (result.value) {
+                            this._systemCtl(submitting, state)
+                        }
+                    });
                 }
 
+                this._systemCtl(submitting, state)
+            },
+            _systemCtl(submitting, state) {
                 this.sent({ key: this.service.key, submitting });
                 axios.post('/api/service/' + state, {
                     class: this.service.key
-                })
-            },
-            async warning() {
-                return this.$swal({
-                    text: 'Вы действительно хотите совершить эту операцию?',
-                    type: 'warning',
-                    showCancelButton: true,
                 })
             }
         }
