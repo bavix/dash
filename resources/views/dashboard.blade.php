@@ -24,7 +24,7 @@
         <meta charset="utf-8" />
     </head>
     <body>
-        <div id="app">
+        <div id="app" class="has-background-light">
             <hero></hero>
             <services></services>
         </div>

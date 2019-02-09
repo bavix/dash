@@ -30,7 +30,7 @@ class Linux extends Package
     /**
      * @var string
      */
-    protected $color = 'is-light';
+    protected $color = 'is-white';
 
     /**
      * @var array
