@@ -32,9 +32,9 @@ class XiaomiPadavan extends Router
                     'action_mode' => ' Reboot ',
                 ],
             ]);
-            
+
             // delay
-            \sleep(1);
+            \sleep(10);
         } catch (ClientException $exception) {
 
         }
