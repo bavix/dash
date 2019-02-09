@@ -25,6 +25,7 @@ class XiaomiPadavan extends Router
     {
         try {
             $this->guzzle()->post('/apply.cgi', [
+                'auth' => [$this->username, $this->password],
                 'headers' => [
                     'X-Requested-With' => 'XMLHttpRequest',
                 ],

@@ -51,7 +51,6 @@ abstract class Router extends Package
         static $guzzle;
         if (!$guzzle) {
             $guzzle = new Client([
-                'auth' => [$this->username, $this->password],
                 'base_uri' => $this->url,
                 'timeout'  => 10,
             ]);
@@ -73,7 +72,7 @@ abstract class Router extends Package
             $code = $exception->getCode();
         }
 
-        $this->active = $code === 200;
+        $this->active = \in_array($code, [200, 401], true);
         return parent::active();
     }
 
