@@ -7,7 +7,7 @@
                     <span class="dash subtitle">Media Server</span>
                 </a>
 
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click="navbarBurger">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" v-hammer:tap="navbarBurger">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
@@ -38,6 +38,10 @@
     import FontAwesomeIcon from '../icon'
     import { mapGetters } from 'vuex'
     import store from '../store'
+    import Vue from 'vue'
+    import { VueHammer } from 'vue2-hammer'
+
+    Vue.use(VueHammer)
 
     export default {
         store,
