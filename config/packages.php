@@ -33,6 +33,11 @@ return [
         'url' => env('SERVICE_PLEX_URL', 'http://127.0.0.1:32400'),
     ],
 
+    \App\Services\Packages\Aria2::class => [
+        'enable' => env('SERVICE_ARIA2_ENABLE', false),
+        'url' => env('SERVICE_ARIA2_URL'),
+    ],
+
     \App\Services\Packages\Nginx::class => [
         'enable' => env('SERVICE_NGINX_ENABLE', false),
     ],
