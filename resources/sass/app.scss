@@ -37,3 +37,8 @@
 @import "~bulma/sass/layout/_all";
 
 @import "~animate.css/animate.min.css";
+
+html, body {
+  height: 100%;
+  width: 100%;
+}
