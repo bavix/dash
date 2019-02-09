@@ -15,10 +15,10 @@
 
             <div class="card-content">
                 <div class="buttons is-pulled-right">
-                    <a v-on:click.prevent="toggle" class="button" :class="buttonToggleClass" :disabled="submitting">
+                    <a @click.prevent="toggle" class="button" :class="buttonToggleClass" :disabled="submitting">
                         <font-awesome-icon :icon="service.active ? 'power-off' : 'play'"/>
                     </a>
-                    <a v-on:click.prevent="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.active || submitting">
+                    <a @click.prevent="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.active || submitting">
                         <font-awesome-icon icon="undo-alt"/>
                     </a>
                 </div>

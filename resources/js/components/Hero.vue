@@ -7,7 +7,7 @@
                     <span class="dash subtitle">Media Server</span>
                 </a>
 
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" v-on:click.prevent="navbarBurger">
+                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" @click.prevent="navbarBurger">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
