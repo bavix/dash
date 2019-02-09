@@ -1,5 +1,5 @@
 
-window.Promise = require('promise-polyfill');
+import 'babel-polyfill';
 window.io = require('socket.io-client');
 require('./echo');
 
