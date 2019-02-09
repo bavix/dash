@@ -66,7 +66,7 @@ abstract class Router extends Package
     {
         try {
             $response = $this->guzzle()->get('/', [
-                ['auth' => [$this->username, $this->password]]
+                'auth' => [$this->username, $this->password]
             ]);
             $code = $response->getStatusCode();
         } catch (ClientException $exception) {
