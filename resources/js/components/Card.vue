@@ -81,15 +81,12 @@
         methods: {
             ...mapMutations(['sent']),
             toggle() {
-                console.debug('toggle')
                 this.systemCtl(1, this.service.active ? STATE_STOP : STATE_START)
             },
             restart() {
-                console.debug('restart')
                 this.systemCtl(2, STATE_RESTART)
             },
             async systemCtl(submitting, state) {
-                console.debug([submitting, state])
                 if (state !== STATE_START && this.service.warning) {
                     const result = await Swal.fire({
                         text: 'Вы действительно хотите совершить эту операцию?',
