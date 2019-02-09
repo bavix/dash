@@ -39,16 +39,18 @@ abstract class Router extends Package
     protected $guzzle;
 
     /**
-     * Router constructor.
-     * @param array $options
+     * @return Client
      */
-    public function __construct(array $options)
+    protected function guzzle(): Client
     {
-        parent::__construct($options);
-        $this->guzzle = new Client([
-            'base_uri' => $this->url,
-            'timeout'  => 10,
-        ]);
+        if (!$this->guzzle) {
+            $this->guzzle = new Client([
+                'base_uri' => $this->url,
+                'timeout'  => 10,
+            ]);
+        }
+
+        return $this->guzzle;
     }
 
     /**
@@ -57,7 +59,7 @@ abstract class Router extends Package
     public function active(): bool
     {
         try {
-            $response = $this->guzzle->get('/');
+            $response = $this->guzzle()->get('/');
             $code = $response->getStatusCode();
         } catch (ClientException $exception) {
             $code = $exception->getCode();
