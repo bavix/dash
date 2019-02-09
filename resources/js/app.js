@@ -1,4 +1,3 @@
-import 'promise-polyfill/src/polyfill';
 window.io = require('socket.io-client');
 require('./echo');
 

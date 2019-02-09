@@ -12,12 +12,18 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js');
-mix.sass('resources/sass/app.scss', 'public/css');
+mix.sass('resources/sass/app.scss', 'public/css')
+    .extract(['vue', 'vuex', 'axios', 'lodash']);
+
 mix.options({
     extractVueStyles: true,
     postCss: [
         require('autoprefixer')({
-            browsers: ['> 1%', 'iOS >=9'],
+            browsers: [
+                "> 1%",
+                "last 3 versions",
+                "ios >= 9"
+            ]
         })
     ],
 });
