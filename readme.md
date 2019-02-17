@@ -1,4 +1,4 @@
-![Dashboard](https://user-images.githubusercontent.com/5111255/52911202-c0fe4400-32b1-11e9-92db-bc80ea9b4c42.png)
+![Dashboard](https://user-images.githubusercontent.com/5111255/52911397-687c7600-32b4-11e9-8af5-fbf4a3b903a5.png)
 
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/bavix/dash/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/bavix/dash/?branch=master)
 [![Code Coverage](https://scrutinizer-ci.com/g/bavix/dash/badges/coverage.png?b=master)](https://scrutinizer-ci.com/g/bavix/dash/?branch=master)
