@@ -1,10 +1,17 @@
 {
-  "name": "laravel/laravel",
+  "name": "bavix/dash",
   "type": "project",
-  "description": "The Laravel Framework.",
+  "description": "Manage your services.",
   "keywords": [
     "framework",
-    "laravel"
+    "laravel",
+    "bavix",
+    "dash",
+    "dashboard",
+    "service",
+    "services",
+    "package",
+    "packages"
   ],
   "license": "MIT",
   "require": {
