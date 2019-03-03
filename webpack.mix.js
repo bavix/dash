@@ -13,7 +13,7 @@ const mix = require('laravel-mix');
 
 mix.js('resources/js/app.js', 'public/js');
 mix.sass('resources/sass/app.scss', 'public/css')
-    .extract(['vue', 'vuex', 'axios', 'lodash', 'sweetalert2', 'vue2-hammer']);
+    .extract(['vue', 'vuex', 'axios', 'sweetalert2', 'vue2-hammer']);
 
 mix.options({
     extractVueStyles: true,
@@ -21,11 +21,23 @@ mix.options({
         require('autoprefixer')({
             browsers: [
                 "> 1%",
-                "last 3 versions",
-                "ios >= 9"
+                "last 4 versions",
+                "ios >= 9",
+                "ie >= 11"
             ]
         })
     ],
+});
+
+mix.webpackConfig(webpack => {
+    return {
+        resolve: {
+            alias: {
+                'vue$': 'vue/dist/vue.esm.js',
+                'sweetalert2$': 'sweetalert2/dist/sweetalert2.js',
+            }
+        }
+    };
 });
 
 if (mix.inProduction()) {

@@ -20,7 +20,7 @@ class Aria2 extends Package
     /**
      * @var array
      */
-    protected $icon = ['fal', 'download'];
+    protected $icon = ['fal', 'magnet'];
 
     /**
      * @var string

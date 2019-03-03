@@ -20,6 +20,6 @@ class Samba extends Package
     /**
      * @var array
      */
-    protected $icon = ['fal', 'cloud-download-alt'];
+    protected $icon = ['fal', 'chart-network'];
 
 }

@@ -17,7 +17,9 @@ import {
     faHexagon,
     faChessQueen,
     faWifi,
-    faTachometerAlt
+    faTachometerAlt,
+    faMagnet,
+    faChartNetwork
 } from '@fortawesome/pro-light-svg-icons'
 
 library.add(faLinux);
@@ -39,6 +41,8 @@ library.add(faUndoAlt);
 library.add(faChessQueen);
 library.add(faHexagon);
 library.add(faLink);
+library.add(faMagnet);
+library.add(faChartNetwork);
 
 library.add(faPlay);
 library.add(faPowerOff);
