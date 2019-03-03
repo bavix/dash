@@ -7,14 +7,14 @@
                     <span class="dash subtitle">Media Server</span>
                 </a>
 
-                <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" v-hammer:tap="navbarBurger">
+                <a v-if="orderedServices.length" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" v-hammer:tap="navbarBurger">
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                     <span aria-hidden="true"></span>
                 </a>
             </div>
 
-            <div class="navbar-menu" :class="{'is-active': isActive}">
+            <div v-if="orderedServices.length" class="navbar-menu" :class="{'is-active': isActive}">
                 <div class="navbar-end">
                     <div class="navbar-item">
                         <div class="buttons">
