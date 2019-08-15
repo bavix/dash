@@ -1,6 +1,6 @@
 <?php
 
-use Spatie\Cors\Cors::class;
+use Spatie\Cors\Cors;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
