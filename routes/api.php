@@ -1,5 +1,6 @@
 <?php
 
+use Spatie\Cors\Cors::class;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -14,28 +15,32 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/services', function (Request $request) {
-    dispatch(new \App\Jobs\InspectorJob());
-    return response()->noContent();
-});
+Route::group(['middleware' => [Cors::class]], function () {
 
-Route::post('/service/start', function (Request $request) {
-    $class = $request->input('class');
-    $service = getService($class);
-    dispatch(new \App\Jobs\EnableJob($service));
-    return response()->noContent();
-});
+    Route::get('/services', function (Request $request) {
+        dispatch(new \App\Jobs\InspectorJob());
+        return response()->noContent();
+    });
 
-Route::post('/service/stop', function (Request $request) {
-    $class = $request->input('class');
-    $service = getService($class);
-    dispatch(new \App\Jobs\DisableJob($service));
-    return response()->noContent();
-});
+    Route::post('/service/start', function (Request $request) {
+        $class = $request->input('class');
+        $service = getService($class);
+        dispatch(new \App\Jobs\EnableJob($service));
+        return response()->noContent();
+    });
 
-Route::post('/service/restart', function (Request $request) {
-    $class = $request->input('class');
-    $service = getService($class);
-    dispatch(new \App\Jobs\RebootJob($service));
-    return response()->noContent();
+    Route::post('/service/stop', function (Request $request) {
+        $class = $request->input('class');
+        $service = getService($class);
+        dispatch(new \App\Jobs\DisableJob($service));
+        return response()->noContent();
+    });
+
+    Route::post('/service/restart', function (Request $request) {
+        $class = $request->input('class');
+        $service = getService($class);
+        dispatch(new \App\Jobs\RebootJob($service));
+        return response()->noContent();
+    });
+
 });
