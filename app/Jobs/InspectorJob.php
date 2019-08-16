@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\PackageService;
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
@@ -20,7 +21,7 @@ class InspectorJob implements ShouldQueue
      */
     public function handle(): void
     {
-        foreach (getServices() as $service) {
+        foreach (app(PackageService::class)->getServices() as $service) {
             dispatch(new ActivityJob($service));
         }
     }
