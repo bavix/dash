@@ -2,6 +2,8 @@
 
 namespace App\Services;
 
+use App\PackageService;
+
 abstract class Package implements ServiceInterface
 {
 
@@ -89,7 +91,7 @@ abstract class Package implements ServiceInterface
         foreach ($this->apps as $apps) {
             $this->active = true;
             foreach ($apps as $app) {
-                $output = \systemCtl('is-active', $app);
+                $output = app(PackageService::class)->systemCtl('is-active', $app);
                 $status = $output[0] ?? 'inactive';
                 if ($status !== 'active') {
                     $this->active = false;
@@ -117,7 +119,7 @@ abstract class Package implements ServiceInterface
              */
             foreach ($this->apps as $apps) {
                 foreach ($apps as $app) {
-                    \systemCtl('start', $app);
+                    app(PackageService::class)->systemCtl('start', $app);
                 }
             }
         }
@@ -137,7 +139,7 @@ abstract class Package implements ServiceInterface
              */
             foreach ($this->apps as $apps) {
                 foreach ($apps as $app) {
-                    \systemCtl('stop', $app);
+                    app(PackageService::class)->systemCtl('stop', $app);
                 }
             }
         }
@@ -157,7 +159,7 @@ abstract class Package implements ServiceInterface
              */
             foreach ($this->apps as $apps) {
                 foreach ($apps as $app) {
-                    \systemCtl('restart', $app);
+                    app(PackageService::class)->systemCtl('restart', $app);
                 }
             }
         }
