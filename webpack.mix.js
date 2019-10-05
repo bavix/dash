@@ -15,19 +15,7 @@ mix.js('resources/js/app.js', 'public/js');
 mix.sass('resources/sass/app.scss', 'public/css')
     .extract(['vue', 'vuex', 'axios', 'sweetalert2', 'vue2-hammer']);
 
-mix.options({
-    extractVueStyles: true,
-    postCss: [
-        require('autoprefixer')({
-            browsers: [
-                "> 1%",
-                "last 4 versions",
-                "ios >= 9",
-                "ie >= 11"
-            ]
-        })
-    ],
-});
+mix.options({extractVueStyles: true});
 
 mix.webpackConfig(webpack => {
     return {
