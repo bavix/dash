@@ -28,6 +28,10 @@ return [
         'password' => env('SERVICE_ZYXEL_KEENETIC_PASSWORD', 'admin'),
     ],
 
+    \App\Services\Packages\Tor::class => [
+        'enable' => env('SERVICE_TOR_ENABLE', false),
+    ],
+
     \App\Services\Packages\Plex::class => [
         'enable' => env('SERVICE_PLEX_ENABLE', false),
         'url' => env('SERVICE_PLEX_URL', 'http://127.0.0.1:32400'),
