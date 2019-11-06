@@ -19,6 +19,7 @@ import {
     faWifi,
     faTachometerAlt,
     faMagnet,
+    faUnlock,
     faChartNetwork
 } from '@fortawesome/pro-light-svg-icons'
 
@@ -42,6 +43,7 @@ library.add(faChessQueen);
 library.add(faHexagon);
 library.add(faLink);
 library.add(faMagnet);
+library.add(faUnlock);
 library.add(faChartNetwork);
 
 library.add(faPlay);
