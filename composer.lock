@@ -1291,14 +1291,14 @@
             "authors": [
                 {
                     "name": "Paul Annesley",
-                    "role": "Developer",
                     "email": "paul@annesley.cc",
-                    "homepage": "http://paul.annesley.cc/"
+                    "homepage": "http://paul.annesley.cc/",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sam Mousa",
-                    "role": "Maintainer",
-                    "email": "sam@mousa.nl"
+                    "email": "sam@mousa.nl",
+                    "role": "Maintainer"
                 }
             ],
             "description": "PHP client for beanstalkd queue",
@@ -2223,16 +2223,16 @@
         },
         {
             "name": "symfony/http-foundation",
-            "version": "v4.3.6",
+            "version": "v4.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/http-foundation.git",
-                "reference": "38f63e471cda9d37ac06e76d14c5ea2ec5887051"
+                "reference": "cabe67275034e173350e158f3b1803d023880227"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/38f63e471cda9d37ac06e76d14c5ea2ec5887051",
-                "reference": "38f63e471cda9d37ac06e76d14c5ea2ec5887051",
+                "url": "https://api.github.com/repos/symfony/http-foundation/zipball/cabe67275034e173350e158f3b1803d023880227",
+                "reference": "cabe67275034e173350e158f3b1803d023880227",
                 "shasum": ""
             },
             "require": {
@@ -2274,7 +2274,7 @@
             ],
             "description": "Symfony HttpFoundation Component",
             "homepage": "https://symfony.com",
-            "time": "2019-10-30T12:58:49+00:00"
+            "time": "2019-11-12T13:07:20+00:00"
         },
         {
             "name": "symfony/http-kernel",
@@ -2370,16 +2370,16 @@
         },
         {
             "name": "symfony/mime",
-            "version": "v4.3.6",
+            "version": "v4.3.8",
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/mime.git",
-                "reference": "3c0e197529da6e59b217615ba8ee7604df88b551"
+                "reference": "22aecf6b11638ef378fab25d6c5a2da8a31a1448"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/mime/zipball/3c0e197529da6e59b217615ba8ee7604df88b551",
-                "reference": "3c0e197529da6e59b217615ba8ee7604df88b551",
+                "url": "https://api.github.com/repos/symfony/mime/zipball/22aecf6b11638ef378fab25d6c5a2da8a31a1448",
+                "reference": "22aecf6b11638ef378fab25d6c5a2da8a31a1448",
                 "shasum": ""
             },
             "require": {
@@ -2425,7 +2425,7 @@
                 "mime",
                 "mime-type"
             ],
-            "time": "2019-10-30T12:58:49+00:00"
+            "time": "2019-11-12T13:10:02+00:00"
         },
         {
             "name": "symfony/polyfill-ctype",
@@ -3326,9 +3326,9 @@
             "authors": [
                 {
                     "name": "Marcel Pociot",
-                    "role": "Developer",
                     "email": "marcel@beyondco.de",
-                    "homepage": "https://beyondco.de"
+                    "homepage": "https://beyondco.de",
+                    "role": "Developer"
                 }
             ],
             "description": "Symfony Var-Dump Server for Laravel",
@@ -3440,8 +3440,8 @@
             "authors": [
                 {
                     "name": "Filipe Dobreira",
-                    "role": "Developer",
-                    "homepage": "https://github.com/filp"
+                    "homepage": "https://github.com/filp",
+                    "role": "Developer"
                 }
             ],
             "description": "php error handling for cool kids",
@@ -3769,18 +3769,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "role": "Developer",
-                    "email": "sebastian@phpeople.de"
+                    "email": "sebastian@phpeople.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "Developer",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "Developer"
                 }
             ],
             "description": "Component for reading phar.io manifest information from a PHP Archive (PHAR)",
@@ -3816,18 +3816,18 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Heuer",
-                    "role": "Developer",
-                    "email": "sebastian@phpeople.de"
+                    "email": "sebastian@phpeople.de",
+                    "role": "Developer"
                 },
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "Developer",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "Developer"
                 }
             ],
             "description": "Library for handling version information and constraints",
@@ -4147,8 +4147,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "FilterIterator implementation that filters files based on a list of suffixes.",
@@ -4189,8 +4189,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Simple template engine.",
@@ -4238,8 +4238,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Utility class for timing",
@@ -4945,8 +4945,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Collection of value objects that represent the types of the PHP type system",
@@ -4988,8 +4988,8 @@
             "authors": [
                 {
                     "name": "Sebastian Bergmann",
-                    "role": "lead",
-                    "email": "sebastian@phpunit.de"
+                    "email": "sebastian@phpunit.de",
+                    "role": "lead"
                 }
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
@@ -5029,8 +5029,8 @@
             "authors": [
                 {
                     "name": "Arne Blankerts",
-                    "role": "Developer",
-                    "email": "arne@blankerts.de"
+                    "email": "arne@blankerts.de",
+                    "role": "Developer"
                 }
             ],
             "description": "A small library for converting tokenized PHP source code into XML and potentially other formats",
