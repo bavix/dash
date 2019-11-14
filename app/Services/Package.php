@@ -91,9 +91,7 @@ abstract class Package implements ServiceInterface
         foreach ($this->apps as $apps) {
             $this->active = true;
             foreach ($apps as $app) {
-                $output = app(PackageService::class)->systemCtl('is-active', $app);
-                $status = $output[0] ?? 'inactive';
-                if ($status !== 'active') {
+                if (!app(PackageService::class)->isActive($app)) {
                     $this->active = false;
                     break;
                 }

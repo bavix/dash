@@ -22,7 +22,7 @@ class PackageService
      */
     public function getPackages(): array
     {
-        if (!$this->packages) {
+        if ($this->packages === null) {
             $this->packages = \config('packages', []);
         }
 
@@ -34,7 +34,7 @@ class PackageService
      */
     public function getServices(): array
     {
-        if (!$this->services) {
+        if ($this->services === null) {
             $order = 0;
             $this->services = [];
             foreach ($this->getPackages() as $class => $options) {
@@ -78,6 +78,17 @@ class PackageService
         $appName = \json_encode($app);
         \exec("systemctl $options $appName", $output);
         return (array)$output;
+    }
+
+    /**
+     * @param string $app
+     * @return bool
+     */
+    public function isActive(string $app): bool
+    {
+        $output = $this->systemCtl('is-active', $app);
+        $status = $output[0] ?? 'inactive';
+        return $status === 'active';
     }
 
 }
