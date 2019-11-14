@@ -117,7 +117,8 @@ abstract class Package implements ServiceInterface
              */
             foreach ($this->apps as $apps) {
                 foreach ($apps as $app) {
-                    app(PackageService::class)->systemCtl('start', $app);
+                    app(PackageService::class)
+                        ->systemCtl('start', $app);
                 }
             }
         }
@@ -137,7 +138,8 @@ abstract class Package implements ServiceInterface
              */
             foreach ($this->apps as $apps) {
                 foreach ($apps as $app) {
-                    app(PackageService::class)->systemCtl('stop', $app);
+                    app(PackageService::class)
+                        ->systemCtl('stop', $app);
                 }
             }
         }
@@ -157,7 +159,8 @@ abstract class Package implements ServiceInterface
              */
             foreach ($this->apps as $apps) {
                 foreach ($apps as $app) {
-                    app(PackageService::class)->systemCtl('restart', $app);
+                    app(PackageService::class)
+                        ->systemCtl('restart', $app);
                 }
             }
         }
