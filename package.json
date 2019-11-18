@@ -25,13 +25,13 @@
         "laravel-mix": "^4.1.4",
         "lodash": "^4.17.15",
         "resolve-url-loader": "^2.3.2",
-        "sass": "^1.23.3",
+        "sass": "^1.23.6",
         "sass-loader": "^7.3.1",
         "sweetalert2": "^8.19.0",
         "vue": "^2.6.10",
         "vue-template-compiler": "^2.6.10",
         "vue2-hammer": "^2.1.2",
-        "vuex": "^3.1.1"
+        "vuex": "^3.1.2"
     },
     "dependencies": {
         "laravel-echo": "^1.6.1",
