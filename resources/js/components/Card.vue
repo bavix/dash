@@ -124,7 +124,7 @@
     }
 
     .flex-card .content {
-        padding: 20px;
+        padding: 30px 20px;
     }
 
     .flex-card .icon-header .notification {
