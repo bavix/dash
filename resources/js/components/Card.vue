@@ -15,10 +15,10 @@
 
             <div class="card-content">
                 <div class="buttons is-pulled-right">
-                    <button v-hammer:tap="toggle" class="button" :class="buttonToggleClass" :disabled="submitting">
+                    <button v-on:click="toggle" class="button" :class="buttonToggleClass" :disabled="submitting">
                         <font-awesome-icon :icon="service.active ? 'power-off' : 'play'"/>
                     </button>
-                    <button v-hammer:tap="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.active || submitting">
+                    <button v-on:click="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.active || submitting">
                         <font-awesome-icon icon="undo-alt"/>
                     </button>
                 </div>
@@ -33,10 +33,6 @@
     import FontAwesomeIcon from '../icon'
     import store from '../store'
     import { mapMutations } from 'vuex'
-    import Vue from 'vue'
-    import { VueHammer } from 'vue2-hammer'
-
-    Vue.use(VueHammer)
 
     const STATE_START = 'start'
     const STATE_STOP = 'stop'

@@ -17,7 +17,7 @@
         "@fortawesome/pro-solid-svg-icons": "^5.11.2",
         "@fortawesome/vue-fontawesome": "^0.1.8",
         "animate.css": "^3.7.2",
-        "autoprefixer": "^9.7.1",
+        "autoprefixer": "^9.7.3",
         "axios": "^0.19",
         "babel-preset-env": "^1.7.0",
         "bulma": "^0.7.5",
@@ -25,12 +25,11 @@
         "laravel-mix": "^4.1.4",
         "lodash": "^4.17.15",
         "resolve-url-loader": "^2.3.2",
-        "sass": "^1.23.6",
+        "sass": "^1.23.7",
         "sass-loader": "^7.3.1",
         "sweetalert2": "^8.19.0",
         "vue": "^2.6.10",
         "vue-template-compiler": "^2.6.10",
-        "vue2-hammer": "^2.1.2",
         "vuex": "^3.1.2"
     },
     "dependencies": {
@@ -38,11 +37,8 @@
         "socket.io-client": "^2.3.0"
     },
     "browserslist": [
-        "last 1 version",
-        "> 1%",
-        "maintained node versions",
-        "not dead",
-        "ios >= 9",
-        "ie >= 11"
+        "last 3 version",
+        "ios >= 11",
+        ">= 1%"
     ]
 }
