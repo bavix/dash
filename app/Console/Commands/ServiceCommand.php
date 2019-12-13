@@ -27,8 +27,6 @@ class ServiceCommand extends Command
     public function handle(): void
     {
         dispatch(new InspectorJob());
-        dispatch(new InspectorJob())
-            ->delay(Carbon::now()->addSeconds(30));
     }
 
 }
