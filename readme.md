@@ -17,7 +17,7 @@ Dash - Easy management of your services.
 * **Package**: dash
 * **Version**: [![Latest Stable Version](https://poser.pugx.org/bavix/dash/v/stable)](https://packagist.org/packages/bavix/dash)
 * **PHP Version**: 7.2+ 
-* **Laravel Version**: `6.0`
+* **Laravel Version**: `6.6`
 * **[Composer](https://getcomposer.org/):** `composer create-project bavix/dash dash`
 
 ---
