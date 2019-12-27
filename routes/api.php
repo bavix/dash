@@ -14,28 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/services', function (Request $request) {
-    dispatch(new \App\Jobs\InspectorJob());
-    return response()->noContent();
-});
-
-Route::post('/service/start', function (Request $request) {
-    $class = $request->input('class');
-    $service = app(\App\PackageService::class)->getService($class);
-    dispatch(new \App\Jobs\EnableJob($service));
-    return response()->noContent();
-});
-
-Route::post('/service/stop', function (Request $request) {
-    $class = $request->input('class');
-    $service = app(\App\PackageService::class)->getService($class);
-    dispatch(new \App\Jobs\DisableJob($service));
-    return response()->noContent();
-});
-
-Route::post('/service/restart', function (Request $request) {
-    $class = $request->input('class');
-    $service = app(\App\PackageService::class)->getService($class);
-    dispatch(new \App\Jobs\RebootJob($service));
-    return response()->noContent();
-});
+Route::get('/services', 'ApiController@index');
+Route::post('/service/start', 'ApiController@start');
+Route::post('/service/stop', 'ApiController@stop');
+Route::post('/service/restart', 'ApiController@restart');
