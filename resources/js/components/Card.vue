@@ -7,7 +7,7 @@
         </div>
         <div class="content">
             <div class="card-title has-text-right">
-                <span class="subtitle is-5" v-text="service.title"></span>
+                <span class="subtitle is-5" v-text="service.title"/>
                 <span class="icon" :class="classStatusSpan">
                     <font-awesome-icon icon="circle"/>
                 </span>
@@ -86,7 +86,7 @@
                 if (state !== STATE_START && this.service.warning) {
                     const result = await Swal.fire({
                         text: 'Вы действительно хотите совершить эту операцию?',
-                        type: 'warning',
+                        icon: 'warning',
                         showCancelButton: true,
                     });
 
