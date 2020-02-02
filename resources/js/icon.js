@@ -20,6 +20,7 @@ import {
     faTachometerAlt,
     faMagnet,
     faUnlock,
+    faDatabase,
     faChartNetwork
 } from '@fortawesome/pro-light-svg-icons'
 
@@ -45,6 +46,7 @@ library.add(faHexagon);
 library.add(faLink);
 library.add(faMagnet);
 library.add(faUnlock);
+library.add(faDatabase);
 library.add(faChartNetwork);
 
 library.add(faPlay);
