@@ -47,6 +47,10 @@ return [
         'url' => env('SERVICE_ARIA2_URL'),
     ],
 
+    \App\Services\Packages\PostgreSQL::class => [
+        'enable' => env('SERVICE_POSTGRES_ENABLE', false),
+    ],
+
     \App\Services\Packages\Nginx::class => [
         'enable' => env('SERVICE_NGINX_ENABLE', false),
     ],
