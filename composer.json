@@ -19,7 +19,7 @@
     "ext-curl": "*",
     "ext-json": "*",
     "fideloper/proxy": "^4.3",
-    "guzzlehttp/guzzle": "^6.5",
+    "guzzlehttp/guzzle": "^7.0",
     "laravel/framework": "^7.1",
     "laravel/tinker": "^2.2",
     "pda/pheanstalk": "^4.0",
