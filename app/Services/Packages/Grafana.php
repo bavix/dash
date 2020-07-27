@@ -20,7 +20,7 @@ class Grafana extends Package
     /**
      * @var string
      */
-    protected $color = 'is-warning';
+    protected $color = 'is-danger';
 
     /**
      * @var array
