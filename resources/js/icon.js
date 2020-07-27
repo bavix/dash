@@ -21,7 +21,8 @@ import {
     faMagnet,
     faUnlock,
     faDatabase,
-    faChartNetwork
+    faChartNetwork,
+    faChartArea,
 } from '@fortawesome/pro-light-svg-icons'
 
 library.add(faLinux);
@@ -48,6 +49,7 @@ library.add(faMagnet);
 library.add(faUnlock);
 library.add(faDatabase);
 library.add(faChartNetwork);
+library.add(faChartArea);
 
 library.add(faPlay);
 library.add(faPowerOff);

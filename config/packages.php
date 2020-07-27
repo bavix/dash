@@ -37,6 +37,11 @@ return [
         'url' => env('SERVICE_PLEX_URL', 'http://127.0.0.1:32400'),
     ],
 
+    \App\Services\Packages\Grafana::class => [
+        'enable' => env('SERVICE_GRAFANA_ENABLE', false),
+        'url' => env('SERVICE_GRAFANA_URL', 'http://127.0.0.1:3000'),
+    ],
+
     \App\Services\Packages\Jira::class => [
         'enable' => env('SERVICE_JIRA_ENABLE', false),
         'url' => env('SERVICE_JIRA_URL', 'http://127.0.0.1:8080'),
