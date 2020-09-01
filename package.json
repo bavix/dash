@@ -17,27 +17,27 @@
         "@fortawesome/pro-solid-svg-icons": "^5.14.0",
         "@fortawesome/vue-fontawesome": "^0.1.10",
         "animate.css": "^3.7.2",
-        "autoprefixer": "^9.8.5",
+        "autoprefixer": "^9.8.6",
         "axios": "^0.19.2",
         "babel-preset-env": "^1.7.0",
         "bulma": "^0.8.2",
         "cross-env": "^7.0.2",
-        "laravel-mix": "^5.0.4",
-        "lodash": "^4.17.19",
+        "laravel-mix": "^5.0.5",
+        "lodash": "^4.17.20",
         "resolve-url-loader": "^3.1.1",
         "sass": "^1.26.10",
         "sass-loader": "^8.0.2",
         "sweetalert2": "^9.17.1",
-        "vue": "^2.6.11",
-        "vue-template-compiler": "^2.6.11",
+        "vue": "^2.6.12",
+        "vue-template-compiler": "^2.6.12",
         "vuex": "^3.5.1"
     },
     "dependencies": {
-        "laravel-echo": "^1.8.0",
+        "laravel-echo": "^1.8.1",
         "socket.io-client": "^2.3.0"
     },
     "browserslist": [
-        "last 3 version",
+        "last 10 version",
         "ios >= 11",
         ">= 1%"
     ]
