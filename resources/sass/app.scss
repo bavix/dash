@@ -34,12 +34,13 @@
 //@import "~bulma/sass/components/tabs.sass";
 
 @import "~bulma/sass/grid/_all";
+@import "~bulma/sass/helpers/_all";
 @import "~bulma/sass/layout/_all";
 
 @import "~animate.css/animate.min.css";
 @import "~sweetalert2/src/sweetalert2";
 
 html, body {
-  height: 100%;
+  //height: 100%;
   width: 100%;
 }
