@@ -11,6 +11,6 @@
 |
 */
 
-Broadcast::channel('availability', function () {
+Broadcast::channel('availability', static function () {
     return true;
 });
