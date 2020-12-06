@@ -7,8 +7,10 @@ abstract class Docker extends Package
 
     /**
      * @return bool
+     *
+     * @throws \JsonException
      */
-    public function active(): bool
+    public function isStarted(): bool
     {
         /**
          * @var array $apps
@@ -16,7 +18,7 @@ abstract class Docker extends Package
         foreach ($this->apps as $apps) {
             $this->active = true;
             foreach ($apps as $app) {
-                $app = \json_encode($app);
+                $app = \json_encode($app, JSON_THROW_ON_ERROR);
                 \exec('docker ps | grep ' . $app, $output);
                 if (!\count($output)) {
                     $this->active = false;
@@ -34,6 +36,8 @@ abstract class Docker extends Package
 
     /**
      * @return bool
+     *
+     * @throws \JsonException
      */
     public function start(): bool
     {
@@ -49,11 +53,13 @@ abstract class Docker extends Package
             }
         }
 
-        return $this->active();
+        return $this->isStarted();
     }
 
     /**
      * @return bool
+     *
+     * @throws \JsonException
      */
     public function stop(): bool
     {
@@ -63,17 +69,19 @@ abstract class Docker extends Package
              */
             foreach ($this->apps as $apps) {
                 foreach ($apps as $app) {
-                    $app = \json_encode($app);
+                    $app = \json_encode($app, JSON_THROW_ON_ERROR);
                     \exec('nohup docker stop ' . $app . ' >/dev/null 2>&1 &');
                 }
             }
         }
 
-        return $this->active();
+        return $this->isStarted();
     }
 
     /**
      * @return bool
+     *
+     * @throws \JsonException
      */
     public function restart(): bool
     {
@@ -83,13 +91,13 @@ abstract class Docker extends Package
              */
             foreach ($this->apps as $apps) {
                 foreach ($apps as $app) {
-                    $app = \json_encode($app);
+                    $app = \json_encode($app, JSON_THROW_ON_ERROR);
                     \exec('docker restart ' . $app);
                 }
             }
         }
 
-        return $this->active();
+        return $this->isStarted();
     }
 
 }

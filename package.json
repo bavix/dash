@@ -10,31 +10,31 @@
         "production": "cross-env NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
     },
     "devDependencies": {
-        "@fortawesome/fontawesome-svg-core": "^1.2.30",
-        "@fortawesome/free-brands-svg-icons": "^5.14.0",
-        "@fortawesome/pro-light-svg-icons": "^5.14.0",
-        "@fortawesome/pro-regular-svg-icons": "^5.14.0",
-        "@fortawesome/pro-solid-svg-icons": "^5.14.0",
+        "@fortawesome/fontawesome-svg-core": "^1.2.32",
+        "@fortawesome/free-brands-svg-icons": "^5.15.1",
+        "@fortawesome/pro-light-svg-icons": "^5.15.1",
+        "@fortawesome/pro-regular-svg-icons": "^5.15.1",
+        "@fortawesome/pro-solid-svg-icons": "^5.15.1",
         "@fortawesome/vue-fontawesome": "^0.1.10",
         "animate.css": "^4.1.1",
         "autoprefixer": "^9.8.6",
         "axios": "^0.20.0",
         "babel-preset-env": "^1.7.0",
-        "bulma": "^0.9.0",
-        "cross-env": "^7.0.2",
-        "laravel-mix": "^5.0.5",
+        "bulma": "^0.9.1",
+        "cross-env": "^7.0.3",
+        "laravel-mix": "^5.0.9",
         "lodash": "^4.17.20",
-        "resolve-url-loader": "^3.1.1",
-        "sass": "^1.26.10",
-        "sass-loader": "^10.0.2",
+        "resolve-url-loader": "^3.1.2",
+        "sass": "^1.30.0",
+        "sass-loader": "^10.1.0",
         "sweetalert2": "^9.17.2",
         "vue": "^2.6.12",
         "vue-template-compiler": "^2.6.12",
-        "vuex": "^3.5.1"
+        "vuex": "^3.6.0"
     },
     "dependencies": {
-        "laravel-echo": "^1.8.1",
-        "socket.io-client": "^2.3.0"
+        "laravel-echo": "^1.9.0",
+        "socket.io-client": "^2.3.1"
     },
     "browserslist": [
         "last 10 version",

@@ -34,9 +34,7 @@ class Availability implements ShouldBroadcast
      */
     public function broadcastWith(): array
     {
-        return [
-            'service' => $this->service->toArray(),
-        ];
+        return $this->service->toArray();
     }
 
     /**

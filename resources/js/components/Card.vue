@@ -1,5 +1,5 @@
 <template>
-    <div class="animated fadeIn flex-card card-overflow light-bordered light-raised">
+    <div class="animated fadeIn flex-card card-overflow light-bordered light-raised" :class="classServiceEnabled">
         <div class="icon-header">
             <span class="notification" :class="service.color">
                 <font-awesome-icon :icon="service.icon"/>
@@ -15,10 +15,10 @@
 
             <div class="card-content">
                 <div class="buttons is-pulled-right">
-                    <button v-on:click="toggle" class="button" :class="buttonToggleClass" :disabled="submitting">
-                        <font-awesome-icon :icon="service.active ? 'power-off' : 'play'"/>
+                    <button v-on:click="toggle" class="button" :class="buttonToggleClass" :disabled="!service.isEnabled || submitting">
+                        <font-awesome-icon :icon="service.isStarted ? 'power-off' : 'play'"/>
                     </button>
-                    <button v-on:click="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.active || submitting">
+                    <button v-on:click="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.isEnabled || !service.active || submitting">
                         <font-awesome-icon icon="undo-alt"/>
                     </button>
                 </div>
@@ -47,10 +47,15 @@
             FontAwesomeIcon,
         },
         computed: {
+            classServiceEnabled() {
+                return {
+                    'filter-grayscale': !this.service.isEnabled
+                }
+            },
             classStatusSpan() {
                 return {
-                    'has-text-danger': !this.service.active,
-                    'has-text-success': this.service.active,
+                    'has-text-danger': !this.service.isStarted,
+                    'has-text-success': this.service.isStarted,
                 }
             },
             buttonToggleClass() {
@@ -60,8 +65,8 @@
                         (!this.service.active && this.service.startAllowed)
                     ),
                     'is-loading': this.submitting === 1,
-                    'is-danger': this.service.active,
-                    'is-success': !this.service.active,
+                    'is-danger': this.service.isStarted,
+                    'is-success': !this.service.isStarted,
                 }
             },
             buttonRestartClass() {
@@ -77,7 +82,7 @@
         methods: {
             ...mapMutations(['sent']),
             toggle() {
-                this.systemCtl(1, this.service.active ? STATE_STOP : STATE_START)
+                this.systemCtl(1, this.service.isStarted ? STATE_STOP : STATE_START)
             },
             restart() {
                 this.systemCtl(2, STATE_RESTART)

@@ -1,7 +1,8 @@
-
 import Echo from 'laravel-echo'
 
-window.Echo = new Echo({
+window.io = require('socket.io-client')
+
+export default new Echo({
     broadcaster: 'socket.io',
     host: window.location.hostname,
 

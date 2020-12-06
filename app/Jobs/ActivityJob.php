@@ -36,7 +36,7 @@ class ActivityJob implements ShouldQueue
      */
     public function handle(): void
     {
-        $this->service->active();
+        $this->service->isStarted();
         event(new Availability($this->service));
     }
 

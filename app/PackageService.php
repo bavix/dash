@@ -84,11 +84,21 @@ class PackageService
      * @param string $app
      * @return bool
      */
-    public function isActive(string $app): bool
+    public function isStarted(string $app): bool
     {
         $output = $this->systemCtl('is-active', $app);
         $status = $output[0] ?? 'inactive';
         return $status === 'active';
     }
 
+    /**
+     * @param string $app
+     * @return bool
+     */
+    public function isEnabled(string $app): bool
+    {
+        $output = $this->systemCtl('is-enabled', $app);
+        $status = $output[0] ?? 'inactive';
+        return $status === 'enabled';
+    }
 }

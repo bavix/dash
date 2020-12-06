@@ -4,6 +4,10 @@ namespace App\Services;
 
 interface ServiceInterface
 {
+    /**
+     * @return bool
+     */
+    public function isEnabled(): bool;
 
     /**
      * @return bool
@@ -23,11 +27,10 @@ interface ServiceInterface
     /**
      * @return bool
      */
-    public function active(): bool;
+    public function isStarted(): bool;
 
     /**
      * @return array
      */
     public function toArray(): array;
-
 }

@@ -26,6 +26,11 @@ abstract class Router extends Package
     /**
      * @var bool
      */
+    protected $enableAll = true;
+
+    /**
+     * @var bool
+     */
     protected $startAllowed = false;
 
     /**
@@ -62,7 +67,7 @@ abstract class Router extends Package
     /**
      * @return bool
      */
-    public function active(): bool
+    public function isStarted(): bool
     {
         try {
             $code = $this->guzzle()
@@ -73,7 +78,7 @@ abstract class Router extends Package
         }
 
         $this->active = \in_array($code, [200, 401], true);
-        return parent::active();
+        return parent::isStarted();
     }
 
 }

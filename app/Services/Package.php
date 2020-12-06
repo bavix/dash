@@ -35,6 +35,16 @@ abstract class Package implements ServiceInterface
     /**
      * @var bool
      */
+    protected $enableAll = false;
+
+    /**
+     * @var bool
+     */
+    protected $enabled = false;
+
+    /**
+     * @var bool
+     */
     protected $active = false;
 
     /**
@@ -83,7 +93,36 @@ abstract class Package implements ServiceInterface
     /**
      * @return bool
      */
-    public function active(): bool
+    public function isEnabled(): bool
+    {
+        if ($this->enableAll) {
+            return true;
+        }
+
+        /**
+         * @var array $apps
+         */
+        foreach ($this->apps as $apps) {
+            $this->enabled = true;
+            foreach ($apps as $app) {
+                if (!app(PackageService::class)->isEnabled($app)) {
+                    $this->enabled = false;
+                    break;
+                }
+            }
+
+            if ($this->enabled) {
+                break;
+            }
+        }
+
+        return $this->enabled;
+    }
+
+    /**
+     * @return bool
+     */
+    public function isStarted(): bool
     {
         /**
          * @var array $apps
@@ -91,7 +130,7 @@ abstract class Package implements ServiceInterface
         foreach ($this->apps as $apps) {
             $this->active = true;
             foreach ($apps as $app) {
-                if (!app(PackageService::class)->isActive($app)) {
+                if (!app(PackageService::class)->isStarted($app)) {
                     $this->active = false;
                     break;
                 }
@@ -123,7 +162,7 @@ abstract class Package implements ServiceInterface
             }
         }
 
-        return $this->active();
+        return $this->isStarted();
     }
 
     /**
@@ -144,7 +183,7 @@ abstract class Package implements ServiceInterface
             }
         }
 
-        return $this->active();
+        return $this->isStarted();
     }
 
     /**
@@ -165,7 +204,7 @@ abstract class Package implements ServiceInterface
             }
         }
 
-        return $this->active();
+        return $this->isStarted();
     }
 
     /**
@@ -173,6 +212,8 @@ abstract class Package implements ServiceInterface
      */
     public function toArray(): array
     {
+        $isEnabled = $this->isEnabled();
+
         return [
             'submitting' => false,
             'key' => static::class,
@@ -183,7 +224,8 @@ abstract class Package implements ServiceInterface
             'startAllowed' => $this->startAllowed,
             'stopAllowed' => $this->stopAllowed,
             'color' => $this->color,
-            'active' => $this->active,
+            'isEnabled' => $isEnabled,
+            'isStarted' => $isEnabled && $this->isStarted(),
             'url' => $this->url,
             'icon' => $this->icon,
             'order' => $this->order,

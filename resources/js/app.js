@@ -1,6 +1,3 @@
-window.io = require('socket.io-client');
-require('./echo');
-
 import Vue from 'vue'
 import store from './store'
 import Hero from './components/Hero'

@@ -12,6 +12,7 @@
 </template>
 
 <script>
+    import echo from '../echo'
     import Card from './Card'
     import axios from 'axios'
     import store from '../store'
@@ -29,20 +30,20 @@
             ...mapMutations(['flushServices', 'updateService']),
         },
         mounted() {
-            window.Echo.channel('availability')
+            echo.channel('availability')
                 .listen('Availability', (e) => {
-                    this.updateService(e.service);
+                    this.updateService(e);
                 });
 
-            window.Echo.connector.socket.on('connect', () => {
+            echo.connector.socket.on('connect', () => {
                 axios.head('/api/services');
             });
 
-            window.Echo.connector.socket.on('reconnecting', () => {
+            echo.connector.socket.on('reconnecting', () => {
                 axios.head('/api/services');
             });
 
-            window.Echo.connector.socket.on('disconnect', this.flushServices);
+            echo.connector.socket.on('disconnect', this.flushServices);
         }
     }
 </script>

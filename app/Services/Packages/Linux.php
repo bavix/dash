@@ -20,6 +20,11 @@ class Linux extends Package
     /**
      * @var bool
      */
+    protected $enableAll = true;
+
+    /**
+     * @var bool
+     */
     protected $active = true;
 
     /**
