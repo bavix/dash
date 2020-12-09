@@ -2,10 +2,14 @@
 
 namespace PHPSTORM_META {
 
-    use App\PackageService;
+    use App\Services\SystemdService;
+    use App\Services\CheckerService;
+    use App\Services\UnitService;
 
     override(\app(0), map([
-        PackageService::class => PackageService::class,
+        SystemdService::class => SystemdService::class,
+        CheckerService::class => CheckerService::class,
+        UnitService::class => UnitService::class,
     ]));
 
 }
