@@ -19,7 +19,7 @@ class XiaomiMI3G extends Router
      */
     public function restartEvent(): void
     {
-        abort_if($this->getStateDTO()->isRestartAllowed(), 400);
+        abort_if(!$this->getStateDTO()->isRestartAllowed(), 400);
 
         Http::timeout(5)
             ->baseUrl($this->url)
