@@ -1,7 +1,7 @@
 import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
 import {library} from '@fortawesome/fontawesome-svg-core'
-import {faGitlab, faLinux, faJira} from '@fortawesome/free-brands-svg-icons'
+import {faLinux} from '@fortawesome/free-brands-svg-icons'
 import {faCircle, faPlay, faPowerOff, faLink, faUndoAlt} from '@fortawesome/pro-solid-svg-icons'
 import {
     faChartBar,
@@ -26,8 +26,6 @@ import {
 } from '@fortawesome/pro-light-svg-icons'
 
 library.add(faLinux);
-library.add(faGitlab);
-library.add(faJira);
 library.add(faChartBar);
 library.add(faHdd);
 library.add(faTerminal);
