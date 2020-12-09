@@ -18,7 +18,7 @@
                     <button v-on:click="toggle" class="button" :class="buttonToggleClass" :disabled="!service.isEnabled || submitting">
                         <font-awesome-icon :icon="service.isStarted ? 'power-off' : 'play'"/>
                     </button>
-                    <button v-on:click="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.isEnabled || !service.active || submitting">
+                    <button v-on:click="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.isEnabled || !service.isStarted || submitting">
                         <font-awesome-icon icon="undo-alt"/>
                     </button>
                 </div>
@@ -61,8 +61,8 @@
             buttonToggleClass() {
                 return {
                     'is-hidden': !(
-                        (this.service.active && this.service.stopAllowed) ||
-                        (!this.service.active && this.service.startAllowed)
+                        (this.service.isStarted && this.service.stopAllowed) ||
+                        (!this.service.isStarted && this.service.startAllowed)
                     ),
                     'is-loading': this.submitting === 1,
                     'is-danger': this.service.isStarted,
