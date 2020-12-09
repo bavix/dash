@@ -57,11 +57,6 @@ abstract class UnitAbstract implements UnitInterface
         return $this->checkerService->checkActivity($this->stateDTO);
     }
 
-    /**
-     * @param string $providerName
-     *
-     * @return $this
-     */
     public function setProviderName(string $providerName): self
     {
         $this->providerName = $providerName;
@@ -69,9 +64,6 @@ abstract class UnitAbstract implements UnitInterface
         return $this;
     }
 
-    /**
-     * @return string
-     */
     public function getProviderName(): string
     {
         return $this->providerName;
