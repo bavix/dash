@@ -1,6 +1,7 @@
 <?php
 
 use App\Units\Aria2;
+use App\Units\Cron;
 use App\Units\Beanstalkd;
 use App\Units\Grafana;
 use App\Units\Linux;
@@ -10,16 +11,23 @@ use App\Units\Nginx;
 use App\Units\OpenSSH;
 use App\Units\Plex;
 use App\Units\PostgreSQL;
+use App\Units\Transmission;
 use App\Units\Samba;
 use App\Units\Supervisor;
 use App\Units\TeamViewer;
 use App\Units\Tor;
+use App\Units\X2Go;
 use App\Units\XiaomiMI3G;
 
 return [
     'linux' => [
         'class' => Linux::class,
         'enable' => env('SERVICE_LINUX_ENABLE', false),
+        'options' => [],
+    ],
+    'cron' => [
+        'class' => Cron::class,
+        'enable' => env('SERVICE_CRON_ENABLE', false),
         'options' => [],
     ],
     'supervisor' => [
@@ -82,6 +90,13 @@ return [
         'enable' => env('SERVICE_SAMBA_ENABLE', false),
         'options' => [],
     ],
+    'transmission' => [
+        'class' => Transmission::class,
+        'enable' => env('SERVICE_TRANSMISSION_ENABLE', false),
+        'options' => [
+            'url' => env('SERVICE_TRANSMISSION_URL', 'http://127.0.0.1:9091'),
+        ],
+    ],
     'netdata' => [
         'class' => NetData::class,
         'enable' => env('SERVICE_NETDATA_ENABLE', false),
@@ -92,6 +107,11 @@ return [
     'beanstalkd' => [
         'class' => Beanstalkd::class,
         'enable' => env('SERVICE_BEANSTALKD_ENABLE', false),
+        'options' => [],
+    ],
+    'x2go' => [
+        'class' => X2Go::class,
+        'enable' => env('SERVICE_X2GO_ENABLE', false),
         'options' => [],
     ],
     'teamviewer' => [
