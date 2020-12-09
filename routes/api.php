@@ -1,6 +1,6 @@
 <?php
 
-use Illuminate\Http\Request;
+use App\Http\Controllers\ApiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,7 +14,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/services', 'ApiController@index');
-Route::post('/service/start', 'ApiController@start');
-Route::post('/service/stop', 'ApiController@stop');
-Route::post('/service/restart', 'ApiController@restart');
+Route::get('/services', [ApiController::class, 'index']);
+Route::post('/service/{service}/start', [ApiController::class, 'start']);
+Route::post('/service/{service}/stop', [ApiController::class, 'stop']);
+Route::post('/service/{service}/restart', [ApiController::class, 'restart']);

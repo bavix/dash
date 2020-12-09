@@ -2,49 +2,31 @@
 
 namespace App\Events;
 
-use App\Services\ServiceInterface;
+use App\Units\UnitInterface;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
 
-class Availability implements ShouldBroadcast
+final class Availability implements ShouldBroadcast
 {
-
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    /**
-     * @var ServiceInterface
-     */
-    protected $service;
+    protected UnitInterface $unit;
 
-    /**
-     * Create a new event instance.
-     *
-     * @param ServiceInterface $service
-     */
-    public function __construct(ServiceInterface $service)
+    public function __construct(UnitInterface $unit)
     {
-        $this->service = $service;
+        $this->unit = $unit;
     }
 
-    /**
-     * @return array
-     */
     public function broadcastWith(): array
     {
-        return $this->service->toArray();
+        return $this->unit->toArray();
     }
 
-    /**
-     * Get the channels the event should broadcast on.
-     *
-     * @return \Illuminate\Broadcasting\Channel|array
-     */
-    public function broadcastOn()
+    public function broadcastOn(): Channel
     {
         return new Channel('availability');
     }
-
 }

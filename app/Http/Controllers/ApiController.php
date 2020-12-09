@@ -2,56 +2,36 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Jobs\InspectorJob;
+use App\Jobs\UnitRestartJob;
+use App\Jobs\UnitStartJob;
+use App\Jobs\UnitStopJob;
+use App\Units\UnitInterface;
 use Illuminate\Http\Response;
 
 class ApiController extends Controller
 {
-
-    /**
-     * @param Request $request
-     * @return Response
-     */
-    public function index(Request $request): Response
+    public function index(): Response
     {
-        dispatch(new \App\Jobs\InspectorJob());
+        dispatch(new InspectorJob());
         return response()->noContent();
     }
 
-    /**
-     * @param Request $request
-     * @return Response
-     */
-    public function start(Request $request): Response
+    public function start(UnitInterface $unit): Response
     {
-        $class = $request->input('class');
-        $service = app(\App\PackageService::class)->getService($class);
-        dispatch(new \App\Jobs\EnableJob($service));
+        dispatch(new UnitStartJob($unit));
         return response()->noContent();
     }
 
-    /**
-     * @param Request $request
-     * @return Response
-     */
-    public function stop(Request $request): Response
+    public function stop(UnitInterface $unit): Response
     {
-        $class = $request->input('class');
-        $service = app(\App\PackageService::class)->getService($class);
-        dispatch(new \App\Jobs\DisableJob($service));
+        dispatch(new UnitStopJob($unit));
         return response()->noContent();
     }
 
-    /**
-     * @param Request $request
-     * @return Response
-     */
-    public function restart(Request $request): Response
+    public function restart(UnitInterface $unit): Response
     {
-        $class = $request->input('class');
-        $service = app(\App\PackageService::class)->getService($class);
-        dispatch(new \App\Jobs\RebootJob($service));
+        dispatch(new UnitRestartJob($unit));
         return response()->noContent();
     }
-
 }

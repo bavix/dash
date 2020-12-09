@@ -101,9 +101,7 @@
                 }
 
                 this.sent({ key: this.service.key, submitting });
-                axios.post('/api/service/' + state, {
-                    class: this.service.key
-                })
+                axios.post('/api/service/' + this.service.key + '/' + state)
             }
         }
     }

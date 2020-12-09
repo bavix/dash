@@ -2,30 +2,26 @@
 
 namespace App\Providers;
 
-use App\PackageService;
+use App\Services\SystemdService;
+use App\Services\CheckerService;
+use App\Services\UnitService;
+use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot(): void
     {
-        //
+        Route::bind('service', static function (string $name) {
+            return app(UnitService::class)
+                ->findUnit($name);
+        });
     }
 
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
+    public function register(): void
     {
-        $this->app->singleton(PackageService::class);
+        $this->app->singleton(SystemdService::class);
+        $this->app->singleton(CheckerService::class);
+        $this->app->singleton(UnitService::class);
     }
-
 }
