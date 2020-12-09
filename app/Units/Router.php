@@ -28,6 +28,7 @@ abstract class Router extends UnitAbstract
     protected function configureStateDTO(StateDTO $stateDTO): StateDTO
     {
         return $stateDTO
+            ->setUrl($this->url)
             ->setWarning(true)
             ->setEnableAlways(true)
             ->setRestartAllowed(true)
