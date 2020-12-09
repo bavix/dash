@@ -25,6 +25,7 @@ class XiaomiMI3G extends Router
             ->baseUrl($this->url)
             ->retry(3, 100)
             ->withBasicAuth($this->username, $this->password)
+            ->asForm()
             ->withHeaders(['X-Requested-With' => 'XMLHttpRequest'])
             ->post('/apply.cgi', ['action_mode' => ' Reboot ']);
     }
