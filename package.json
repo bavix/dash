@@ -37,8 +37,6 @@
         "socket.io-client": "^2.3.1"
     },
     "browserslist": [
-        "last 10 version",
-        "ios >= 11",
-        ">= 1%"
+        "last 3 version"
     ]
 }
