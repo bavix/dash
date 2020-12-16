@@ -4,7 +4,7 @@
             <div class="navbar-brand">
                 <a class="navbar-item" href="/">
                     <font-awesome-icon :icon="['fal','tachometer-alt']" size="2x"/>
-                    <span class="dash subtitle">Media Server</span>
+                    <span class="dash subtitle">Dashboard</span>
                 </a>
 
                 <a v-if="orderedServices.length" role="button" class="navbar-burger" aria-label="menu" aria-expanded="false" v-on:click="navbarBurger">

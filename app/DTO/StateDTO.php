@@ -25,6 +25,8 @@ final class StateDTO
     private string $color;
     private array $icon;
 
+    private bool $spin = false;
+
     public function isWarning(): bool
     {
         return $this->warning;
@@ -181,6 +183,18 @@ final class StateDTO
     public function setIcon(array $icon): self
     {
         $this->icon = $icon;
+
+        return $this;
+    }
+
+    public function isSpin(): bool
+    {
+        return $this->spin;
+    }
+
+    public function setSpin(bool $spin): self
+    {
+        $this->spin = $spin;
 
         return $this;
     }

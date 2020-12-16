@@ -2,7 +2,7 @@
     <div class="animated fadeIn flex-card card-overflow light-bordered light-raised" :class="classServiceEnabled">
         <div class="icon-header">
             <span class="notification" :class="service.color">
-                <font-awesome-icon :icon="service.icon"/>
+                <font-awesome-icon class="card-icon" :spin="service.spin" :icon="service.icon"/>
             </span>
         </div>
         <div class="content">
@@ -108,6 +108,11 @@
 </script>
 
 <style scoped>
+
+    .card-icon {
+        width: 1em;
+        height: 1em;
+    }
 
     .card-content {
         padding-left: 0;

@@ -91,6 +91,7 @@ abstract class UnitAbstract implements UnitInterface
             'key' => $this->getProviderName(),
             'title' => $stateDTO->getTitle(),
             'warning' => $stateDTO->isWarning(),
+            'spin' => $stateDTO->isSpin(),
             'restartAllowed' => $stateDTO->isRestartAllowed(),
             'startAllowed' => $stateDTO->isStartAllowed(),
             'stopAllowed' => $stateDTO->isStopAllowed(),

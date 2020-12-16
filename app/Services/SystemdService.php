@@ -85,7 +85,6 @@ final class SystemdService
             implode(' ', array_map('escapeshellarg', $commands))
         );
 
-        echo $command, PHP_EOL;
         exec($command . ' 2>/dev/null', $output);
 
         if (count($output) !== count($commands)) {

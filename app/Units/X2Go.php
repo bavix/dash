@@ -13,6 +13,7 @@ class X2Go extends UnitAbstract
             ->setRestartAllowed(true)
             ->setStartAllowed(true)
             ->setStopAllowed(true)
+            ->setSpin(true)
             ->setTitle('X2Go')
             ->setColor('is-warning')
             ->setIcon(['fal', 'hexagon'])
