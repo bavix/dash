@@ -139,7 +139,7 @@
         padding: 15px 22px 15px 22px;
         font-size: 24px;
         font-weight: normal;
-        border-radius: 3px;
+        border-radius: 0.3rem;
         position: absolute;
         left: 10px;
         top: -20px;
@@ -149,7 +149,7 @@
         position: relative;
         background-color: #fff;
         border: 1px solid #fcfcfc;
-        border-radius: 0.1875rem;
+        border-radius: 0.5rem;
         display: inline-block;
         overflow: hidden;
         width: 100%;
