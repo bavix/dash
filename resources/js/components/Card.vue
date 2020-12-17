@@ -141,7 +141,7 @@
         font-weight: normal;
         border-radius: 0.3rem;
         position: absolute;
-        left: 10px;
+        left: 15px;
         top: -20px;
     }
 
