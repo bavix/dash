@@ -11,22 +11,13 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.js('resources/js/app.js', 'public/js');
-mix.sass('resources/sass/app.scss', 'public/css')
-    .extract(['vue', 'vuex', 'axios', 'sweetalert2']);
-
-mix.options({extractVueStyles: true});
-
-mix.webpackConfig(webpack => {
-    return {
-        resolve: {
-            alias: {
-                'vue$': 'vue/dist/vue.esm.js',
-                'sweetalert2$': 'sweetalert2/dist/sweetalert2.js',
-            }
-        }
-    };
+mix.js('resources/js/app.js', 'public/js').vue({
+    extractStyles: true,
 });
+
+mix.sass('resources/sass/app.scss', 'public/css');
+
+mix.extract(['vue', 'vuex', 'axios', 'sweetalert2']);
 
 if (mix.inProduction()) {
     mix.version();

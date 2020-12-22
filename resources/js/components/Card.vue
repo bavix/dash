@@ -16,7 +16,8 @@
             <div class="card-content">
                 <div class="buttons is-pulled-right">
                     <button v-on:click="toggle" class="button" :class="buttonToggleClass" :disabled="!service.isEnabled || submitting">
-                        <font-awesome-icon :icon="['far', service.isStarted ? 'power-off' : 'play']"/>
+                        <font-awesome-icon v-if="service.isStarted" :icon="['far', 'power-off']"/>
+                        <font-awesome-icon v-else :icon="['far', 'play']"/>
                     </button>
                     <button v-on:click="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.isEnabled || !service.isStarted || submitting">
                         <font-awesome-icon :icon="['fal', 'sync']"/>
@@ -101,7 +102,7 @@
                 }
 
                 this.sent({ key: this.service.key, submitting });
-                axios.post('/api/service/' + this.service.key + '/' + state)
+                await axios.post('/api/service/' + this.service.key + '/' + state)
             }
         }
     }

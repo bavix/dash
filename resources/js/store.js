@@ -1,10 +1,8 @@
 import orderBy from 'lodash/orderBy'
 import Vue from 'vue'
-import Vuex from 'vuex'
+import { createStore } from 'vuex'
 
-Vue.use(Vuex)
-
-const store = new Vuex.Store({
+export default createStore({
     strict: process.env.NODE_ENV !== 'production',
     state: {
         services: [],
@@ -13,16 +11,18 @@ const store = new Vuex.Store({
         sent(state, {key, submitting}) {
             const index = this.getters.getIndexByKey(key);
             if (index >= 0) {
-                Vue.set(state.services, index, {
-                    ...state.services[index],
-                    submitting
-                });
+                state.services[index].submitting = submitting
+                // Vue.set(state.services, index, {
+                //     ...state.services[index],
+                //     submitting
+                // });
             }
         },
         updateService(state, service) {
             const index = this.getters.getIndexByKey(service.key);
             const key = index >= 0 ? index : state.services.length;
-            Vue.set(state.services, key, service);
+            state.services[key] = service
+            // Vue.set(state.services, key, service);
         },
         flushServices(state) {
             state.services = []
@@ -30,7 +30,7 @@ const store = new Vuex.Store({
     },
     getters: {
         getIndexByKey: state => key => {
-            return state.services.findIndex((value) => {
+            return state.services.findIndex(value => {
                 return value.key === key;
             })
         },
@@ -39,5 +39,3 @@ const store = new Vuex.Store({
         }
     }
 })
-
-export default store

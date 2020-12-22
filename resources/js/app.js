@@ -1,15 +1,14 @@
-import Vue from 'vue'
+import { createApp } from 'vue'
 import store from './store'
 import Hero from './components/Hero'
 import Services from './components/Services'
 
-Vue.config.productionTip = false
-
-const app = new Vue({
-    el: '#app',
-    store,
+const app = createApp({
     components: {
         Hero,
         Services,
     }
 });
+
+app.use(store);
+app.mount('#app');
