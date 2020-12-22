@@ -15,10 +15,10 @@
         "@fortawesome/pro-light-svg-icons": "^5.15.1",
         "@fortawesome/pro-regular-svg-icons": "^5.15.1",
         "@fortawesome/pro-solid-svg-icons": "^5.15.1",
-        "@fortawesome/vue-fontawesome": "^2.0.0",
+        "@fortawesome/vue-fontawesome": "^2.0.2",
         "animate.css": "^4.1.1",
         "autoprefixer": "^10.1.0",
-        "axios": "^0.21.0",
+        "axios": "^0.21.1",
         "babel-preset-env": "^1.7.0",
         "bulma": "^0.9.1",
         "cross-env": "^7.0.3",
@@ -33,7 +33,7 @@
         "vuex": "^3.6.0"
     },
     "dependencies": {
-        "laravel-echo": "^1.9.0",
+        "laravel-echo": "^1.10.0",
         "socket.io-client": "^2.3.1"
     },
     "browserslist": [

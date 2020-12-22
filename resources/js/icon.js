@@ -2,9 +2,10 @@ import {FontAwesomeIcon} from '@fortawesome/vue-fontawesome'
 
 import {library} from '@fortawesome/fontawesome-svg-core'
 import {faLinux} from '@fortawesome/free-brands-svg-icons'
-import {faCircle, faPlay, faPowerOff, faLink, faUndoAlt} from '@fortawesome/pro-solid-svg-icons'
+import {faCircle, faLink} from '@fortawesome/pro-solid-svg-icons'
 import {
     faChartBar,
+    faSync,
     faCloudDownloadAlt,
     faDownload,
     faHdd,
@@ -24,32 +25,34 @@ import {
     faChartNetwork,
     faChartArea,
 } from '@fortawesome/pro-light-svg-icons'
+import {faPlay, faPowerOff} from '@fortawesome/pro-regular-svg-icons'
 
-library.add(faLinux);
-library.add(faChartBar);
-library.add(faHdd);
-library.add(faTerminal);
-library.add(faCircle);
-library.add(faVideo);
-library.add(faClock);
-library.add(faBrowser);
-library.add(faRocket);
-library.add(faTachometerAlt);
-library.add(faCloudDownloadAlt);
-library.add(faWifi);
-library.add(faDownload);
-library.add(faUserShield);
-library.add(faUndoAlt);
-library.add(faChessQueen);
-library.add(faHexagon);
-library.add(faLink);
-library.add(faMagnet);
-library.add(faUnlock);
-library.add(faDatabase);
-library.add(faChartNetwork);
-library.add(faChartArea);
-
-library.add(faPlay);
-library.add(faPowerOff);
+library.add(...[
+    faLinux,
+    faChartBar,
+    faHdd,
+    faTerminal,
+    faCircle,
+    faVideo,
+    faClock,
+    faBrowser,
+    faRocket,
+    faTachometerAlt,
+    faCloudDownloadAlt,
+    faWifi,
+    faDownload,
+    faUserShield,
+    faChessQueen,
+    faHexagon,
+    faLink,
+    faMagnet,
+    faUnlock,
+    faDatabase,
+    faChartNetwork,
+    faChartArea,
+    faPlay,
+    faPowerOff,
+    faSync,
+])
 
 export default FontAwesomeIcon;

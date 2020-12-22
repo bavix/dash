@@ -28,7 +28,7 @@ abstract class AbstractUnitJob implements ShouldQueue
         event(new Availability($this->unit));
     }
 
-    public function failed()
+    public function failed(): void
     {
         event(new Availability($this->unit));
     }

@@ -16,10 +16,10 @@
             <div class="card-content">
                 <div class="buttons is-pulled-right">
                     <button v-on:click="toggle" class="button" :class="buttonToggleClass" :disabled="!service.isEnabled || submitting">
-                        <font-awesome-icon :icon="service.isStarted ? 'power-off' : 'play'"/>
+                        <font-awesome-icon :icon="['far', service.isStarted ? 'power-off' : 'play']"/>
                     </button>
                     <button v-on:click="restart" class="button is-warning" :class="buttonRestartClass" :disabled="!service.isEnabled || !service.isStarted || submitting">
-                        <font-awesome-icon icon="undo-alt"/>
+                        <font-awesome-icon :icon="['fal', 'sync']"/>
                     </button>
                 </div>
             </div>
