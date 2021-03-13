@@ -1,5 +1,5 @@
 /*!
- * vuex v4.0.0
- * (c) 2021 Evan You
+ * vuex v4.0.0-rc.2
+ * (c) 2020 Evan You
  * @license MIT
  */
