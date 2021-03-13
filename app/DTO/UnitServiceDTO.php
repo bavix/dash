@@ -6,17 +6,13 @@ namespace App\DTO;
 
 final class UnitServiceDTO
 {
-    private string $class;
-    private bool $enable;
-    private ?array $options;
-
     private int $order = 0;
 
-    public function __construct(string $class, bool $enable, ?array $options = [])
-    {
-        $this->class = $class;
-        $this->enable = $enable;
-        $this->options = $options;
+    public function __construct(
+        private string $class,
+        private bool $enable,
+        private ?array $options = []
+    ) {
     }
 
     public function getClass(): string

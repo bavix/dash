@@ -7,11 +7,11 @@ use App\Services\CheckerService;
 
 class Plex extends UnitAbstract
 {
-    private string $url;
-
-    public function __construct(CheckerService $checkerService, StateDTO $stateDTO, string $url)
-    {
-        $this->url = $url;
+    public function __construct(
+        private CheckerService $checkerService,
+        private StateDTO $stateDTO,
+        private string $url
+    ) {
         parent::__construct($checkerService, $stateDTO);
     }
 

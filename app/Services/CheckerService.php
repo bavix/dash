@@ -5,17 +5,15 @@ declare(strict_types=1);
 namespace App\Services;
 
 use App\DTO\StateDTO;
+use JetBrains\PhpStorm\Pure;
 
 /**
  * @psalm-immutable
  */
 final class CheckerService
 {
-    protected SystemdService $systemdService;
-
-    public function __construct(SystemdService $systemdService)
+    #[Pure] public function __construct(private SystemdService $systemdService)
     {
-        $this->systemdService = $systemdService;
     }
 
     public function checkActivity(StateDTO $stateDTO): bool
