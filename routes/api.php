@@ -18,3 +18,4 @@ Route::get('/services', [ApiController::class, 'index']);
 Route::post('/service/{service}/start', [ApiController::class, 'start']);
 Route::post('/service/{service}/stop', [ApiController::class, 'stop']);
 Route::post('/service/{service}/restart', [ApiController::class, 'restart']);
+Route::post('/service/{service}/nextCase', [ApiController::class, 'nextCase']);

@@ -7,7 +7,7 @@
         </div>
         <div class="content">
             <div class="card-title has-text-right">
-                <span class="subtitle is-5" v-text="service.title"/>
+                <span class="subtitle is-5" v-text="service.switchName || service.title"/>
                 <span class="icon" :class="classStatusSpan">
                     <font-awesome-icon icon="circle"/>
                 </span>
@@ -15,6 +15,9 @@
 
             <div class="card-content">
                 <div class="buttons is-pulled-right">
+                    <button v-on:click="nextCase" class="button is-info" :class="buttonSwitchClass" v-if="switchEnable" :disabled="submitting">
+                        <font-awesome-icon :icon="['fad', 'ethernet']"/>
+                    </button>
                     <button v-on:click="toggle" class="button" :class="buttonToggleClass" :disabled="!service.isEnabled || submitting">
                         <font-awesome-icon v-if="service.isStarted" :icon="['far', 'power-off']"/>
                         <font-awesome-icon v-else :icon="['far', 'play']"/>
@@ -38,6 +41,7 @@
     const STATE_START = 'start'
     const STATE_STOP = 'stop'
     const STATE_RESTART = 'restart'
+    const STATE_NEXT_CASE = 'nextCase'
 
     export default {
         store,
@@ -76,8 +80,16 @@
                     'is-loading': this.submitting === 2,
                 }
             },
+            buttonSwitchClass() {
+                return {
+                    'is-loading': this.submitting === 3,
+                }
+            },
             submitting() {
                 return this.service.submitting
+            },
+            switchEnable() {
+                return this.service.switchEnable || false
             }
         },
         methods: {
@@ -87,6 +99,9 @@
             },
             restart() {
                 this.systemCtl(2, STATE_RESTART)
+            },
+            nextCase() {
+                this.systemCtl(3, STATE_NEXT_CASE)
             },
             async systemCtl(submitting, state) {
                 if (state !== STATE_START && this.service.warning) {

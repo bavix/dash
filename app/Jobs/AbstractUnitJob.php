@@ -16,11 +16,8 @@ abstract class AbstractUnitJob implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
 
-    protected UnitInterface $unit;
-
-    public function __construct(UnitInterface $service)
+    public function __construct(protected UnitInterface $unit)
     {
-        $this->unit = $service;
     }
 
     public function handle(): void

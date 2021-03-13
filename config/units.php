@@ -4,6 +4,7 @@ use App\Units\Aria2;
 use App\Units\Cron;
 use App\Units\Beanstalkd;
 use App\Units\Grafana;
+use App\Units\Keenetic3Router;
 use App\Units\Linux;
 use App\Units\Netatalk;
 use App\Units\NetData;
@@ -17,7 +18,7 @@ use App\Units\Supervisor;
 use App\Units\TeamViewer;
 use App\Units\Tor;
 use App\Units\X2Go;
-use App\Units\XiaomiMI3G;
+use App\Units\PadavanRouter;
 
 return [
     'linux' => [
@@ -35,13 +36,25 @@ return [
         'enable' => env('SERVICE_SUPERVISOR_ENABLE', false),
         'options' => [],
     ],
-    'xiaomi_mi3g' => [
-        'class' => XiaomiMI3G::class,
-        'enable' => env('SERVICE_XIAOMI_MI3G_ENABLE', false),
+    'keenetic' => [
+        'class' => Keenetic3Router::class,
+        'enable' => env('SERVICE_ROUTER_KEENETIC_ENABLE', false),
         'options' => [
-            'url' => env('SERVICE_XIAOMI_MI3G_URL', 'http://192.168.1.1'),
-            'username' => env('SERVICE_XIAOMI_MI3G_USERNAME', 'admin'),
-            'password' => env('SERVICE_XIAOMI_MI3G_PASSWORD', 'admin'),
+            'url' => env('SERVICE_ROUTER_KEENETIC_URL', 'http://192.168.1.1'),
+            'username' => env('SERVICE_ROUTER_KEENETIC_USERNAME', 'admin'),
+            'password' => env('SERVICE_ROUTER_KEENETIC_PASSWORD', 'admin'),
+            'multiWan' => [
+                'enable' => env('SERVICE_ROUTER_KEENETIC_MULTI_WAN_ENABLE', false),
+            ],
+        ],
+    ],
+    'padavan' => [
+        'class' => PadavanRouter::class,
+        'enable' => env('SERVICE_ROUTER_PADAVAN_ENABLE', false),
+        'options' => [
+            'url' => env('SERVICE_ROUTER_PADAVAN_URL', 'http://192.168.1.1'),
+            'username' => env('SERVICE_ROUTER_PADAVAN_USERNAME', 'admin'),
+            'password' => env('SERVICE_ROUTER_PADAVAN_PASSWORD', 'admin'),
         ],
     ],
     'tor_server' => [

@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use App\Services\CustodyService;
 use App\Services\SystemdService;
 use App\Services\CheckerService;
 use App\Services\UnitService;
@@ -20,6 +21,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function register(): void
     {
+        $this->app->singleton(CustodyService::class);
         $this->app->singleton(SystemdService::class);
         $this->app->singleton(CheckerService::class);
         $this->app->singleton(UnitService::class);

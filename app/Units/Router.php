@@ -4,24 +4,18 @@ namespace App\Units;
 
 use App\DTO\StateDTO;
 use App\Services\CheckerService;
+use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Support\Facades\Http;
 
 abstract class Router extends UnitAbstract
 {
-    protected string $url;
-    protected string $username;
-    protected string $password;
-
     public function __construct(
-        CheckerService $checkerService,
-        StateDTO $stateDTO,
-        string $url,
-        string $username,
-        string $password
+        private CheckerService $checkerService,
+        private StateDTO $stateDTO,
+        protected string $url,
+        protected string $username,
+        protected string $password
     ) {
-        $this->url = $url;
-        $this->username = $username;
-        $this->password = $password;
         parent::__construct($checkerService, $stateDTO);
     }
 
@@ -35,15 +29,20 @@ abstract class Router extends UnitAbstract
             ->setStartAllowed(false)
             ->setStopAllowed(false)
             ->setTitle('Router')
-            ->setIcon(['fal', 'wifi']);
+            ->setIcon(['fal', 'wifi'])
+            ->setColor('is-info');
     }
 
     public function isStarted(): bool
     {
-        return in_array(
-            Http::timeout(3)->head($this->url)->status(),
-            [200, 401],
-            true
-        );
+        try {
+            return in_array(
+                Http::timeout(1)->head($this->url)->status(),
+                [200, 401],
+                true
+            );
+        } catch (ConnectionException) {
+            return false;
+        }
     }
 }

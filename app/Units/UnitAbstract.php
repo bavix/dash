@@ -10,14 +10,11 @@ use function time;
 
 abstract class UnitAbstract implements UnitInterface
 {
-    private CheckerService $checkerService;
-    private StateDTO $stateDTO;
     private ?string $providerName = null;
     private int $order = 0;
 
-    public function __construct(CheckerService $checkerService, StateDTO $stateDTO)
+    public function __construct(private CheckerService $checkerService, private StateDTO $stateDTO)
     {
-        $this->checkerService = $checkerService;
         $this->stateDTO = $this->configureStateDTO($stateDTO);
     }
 

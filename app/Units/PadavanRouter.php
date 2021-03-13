@@ -2,21 +2,10 @@
 
 namespace App\Units;
 
-use App\DTO\StateDTO;
 use Illuminate\Support\Facades\Http;
 
-class XiaomiMI3G extends Router
+class PadavanRouter extends Router
 {
-    protected function configureStateDTO(StateDTO $stateDTO): StateDTO
-    {
-        return parent::configureStateDTO($stateDTO)
-            ->setTitle('Xiaomi')
-            ->setColor('is-info');
-    }
-
-    /**
-     * @return void
-     */
     public function restartEvent(): void
     {
         abort_if(!$this->getStateDTO()->isRestartAllowed(), 400);

@@ -8,16 +8,14 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Contracts\Broadcasting\ShouldBroadcast;
+use JetBrains\PhpStorm\Pure;
 
+/** @psalm-immutable */
 final class Availability implements ShouldBroadcast
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    protected UnitInterface $unit;
-
-    public function __construct(UnitInterface $unit)
-    {
-        $this->unit = $unit;
+    #[Pure] public function __construct(private UnitInterface $unit) {
     }
 
     public function broadcastWith(): array
@@ -25,7 +23,7 @@ final class Availability implements ShouldBroadcast
         return $this->unit->toArray();
     }
 
-    public function broadcastOn(): Channel
+    #[Pure] public function broadcastOn(): Channel
     {
         return new Channel('availability');
     }
