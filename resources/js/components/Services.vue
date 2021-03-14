@@ -59,11 +59,8 @@ export default {
     text-align: center;
 }
 .dash-loader {
-    height: 100px;
-    width: 20%;
+    margin: 0 auto;
     text-align: center;
-    padding: 1em;
-    margin: 0 auto 1em;
     display: inline-block;
     vertical-align: top;
 }
