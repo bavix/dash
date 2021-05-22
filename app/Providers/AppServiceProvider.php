@@ -2,7 +2,9 @@
 
 namespace App\Providers;
 
+use App\Interfaces\DAgentInterface;
 use App\Services\CustodyService;
+use App\Services\DAgentClientService;
 use App\Services\SystemdService;
 use App\Services\CheckerService;
 use App\Services\UnitService;
@@ -21,6 +23,7 @@ class AppServiceProvider extends ServiceProvider
 
     public function register(): void
     {
+        $this->app->singleton(DAgentInterface::class, DAgentClientService::class);
         $this->app->singleton(CustodyService::class);
         $this->app->singleton(SystemdService::class);
         $this->app->singleton(CheckerService::class);

@@ -2,6 +2,7 @@
 
 namespace App\Events;
 
+use App\Interfaces\DAgentInterface;
 use App\Units\UnitInterface;
 use Illuminate\Broadcasting\Channel;
 use Illuminate\Queue\SerializesModels;
@@ -20,7 +21,20 @@ final class Availability implements ShouldBroadcast
 
     public function broadcastWith(): array
     {
-        return $this->unit->toArray();
+        $data = $this->unit->toArray();
+
+        // tracking to dagent
+        app(DAgentInterface::class)->dispatchMessage(
+            'availability',
+            (int) ($data['isStarted'] ?? 0),
+            [
+                'hostname' => gethostname(),
+                'title' => $data['title'],
+                'key' => $data['key'],
+            ],
+        );
+
+        return $data;
     }
 
     #[Pure] public function broadcastOn(): Channel
