@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "db327cdee94286ee950c6ad98cbd6700",
+    "content-hash": "e78005e553cf7f2b90313c46d17328dc",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -64,16 +64,16 @@
         },
         {
             "name": "bavix/dagent-client",
-            "version": "0.0.1",
+            "version": "0.0.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bavix/dagent-client.git",
-                "reference": "99b36ce58bb6e8d7fb9de87eee9aa61235bc38d3"
+                "reference": "42bf87e928599a7b75603894faa141d2b2a5e491"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bavix/dagent-client/zipball/99b36ce58bb6e8d7fb9de87eee9aa61235bc38d3",
-                "reference": "99b36ce58bb6e8d7fb9de87eee9aa61235bc38d3",
+                "url": "https://api.github.com/repos/bavix/dagent-client/zipball/42bf87e928599a7b75603894faa141d2b2a5e491",
+                "reference": "42bf87e928599a7b75603894faa141d2b2a5e491",
                 "shasum": ""
             },
             "require": {
@@ -112,9 +112,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bavix/dagent-client/issues",
-                "source": "https://github.com/bavix/dagent-client/tree/0.0.1"
+                "source": "https://github.com/bavix/dagent-client/tree/0.0.2"
             },
-            "time": "2021-05-22T16:46:21+00:00"
+            "time": "2021-05-22T17:28:50+00:00"
         },
         {
             "name": "brick/math",
