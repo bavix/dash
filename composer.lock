@@ -64,16 +64,16 @@
         },
         {
             "name": "bavix/dagent-client",
-            "version": "0.0.3",
+            "version": "0.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/bavix/dagent-client.git",
-                "reference": "f4c7264c96be5ad528190710dbf0a74d71c7b687"
+                "reference": "f6cc7fb0b61a9027c39d3272ea2955ba8a0468d0"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/bavix/dagent-client/zipball/f4c7264c96be5ad528190710dbf0a74d71c7b687",
-                "reference": "f4c7264c96be5ad528190710dbf0a74d71c7b687",
+                "url": "https://api.github.com/repos/bavix/dagent-client/zipball/f6cc7fb0b61a9027c39d3272ea2955ba8a0468d0",
+                "reference": "f6cc7fb0b61a9027c39d3272ea2955ba8a0468d0",
                 "shasum": ""
             },
             "require": {
@@ -112,9 +112,9 @@
             ],
             "support": {
                 "issues": "https://github.com/bavix/dagent-client/issues",
-                "source": "https://github.com/bavix/dagent-client/tree/0.0.3"
+                "source": "https://github.com/bavix/dagent-client/tree/0.0.4"
             },
-            "time": "2021-05-22T17:41:16+00:00"
+            "time": "2021-06-10T20:06:11+00:00"
         },
         {
             "name": "brick/math",
@@ -7445,5 +7445,5 @@
         "ext-json": "*"
     },
     "platform-dev": [],
-    "plugin-api-version": "2.0.0"
+    "plugin-api-version": "2.1.0"
 }
