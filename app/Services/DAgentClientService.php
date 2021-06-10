@@ -27,7 +27,7 @@ class DAgentClientService implements DAgentInterface
      */
     public function dispatchMessages(array $messages): bool
     {
-        if (!config('dagent.enable', false)) {
+        if (!config('dagent.enable', false) || count($messages) === 0) {
             return false;
         }
 
