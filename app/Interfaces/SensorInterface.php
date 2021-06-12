@@ -4,10 +4,11 @@ declare(strict_types=1);
 
 namespace App\Interfaces;
 
+use JetBrains\PhpStorm\Pure;
+
 interface SensorInterface
 {
-    public function getName(): string;
-    public function getTags(): array;
+    #[Pure] public function getName(): string;
+    #[Pure] public function getTags(): array;
     public function getValue(): int;
-    public function asArray(): array;
 }

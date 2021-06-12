@@ -2,21 +2,22 @@
 
 namespace App\Console\Commands;
 
+use App\Interfaces\DAgentInterface;
+use App\Interfaces\MultiSensorInterface;
 use App\Interfaces\SensorInterface;
-use App\Sensors\RandomTinyint;
-use App\Services\DAgentClientService;
 use Illuminate\Console\Command;
+use JetBrains\PhpStorm\ArrayShape;
 use JsonException;
 use Psr\Http\Client\ClientExceptionInterface;
 
 class SensorsCommand extends Command
 {
-    private array $sensors = [
-        RandomTinyint::class,
-    ];
+    private array $tags;
 
-    public function __construct(private DAgentClientService $clientService)
-    {
+    public function __construct(
+        private DAgentInterface $clientService,
+    ) {
+        $this->tags = ['hostname' => gethostname()];
         parent::__construct();
     }
 
@@ -36,9 +37,38 @@ class SensorsCommand extends Command
      */
     public function handle(): void
     {
-        $sensors = array_map(static fn (string $name): SensorInterface => app($name), $this->sensors);
-        $bundle = array_map(static fn (SensorInterface $sensor) => $sensor->asArray(), $sensors);
+        $settings = array_filter(
+            config('sensors', []),
+            static fn (array $setting) => $setting['enable'] ?? false
+        );
 
-        $this->clientService->dispatchMessages($bundle);
+        $objects = array_map(
+            static fn (array $setting) => app($setting['class'], $setting['options']),
+            $settings
+        );
+
+        $simpleSensors = [];
+        $multiSensors = [];
+        foreach ($objects as $object) {
+            if ($object instanceof SensorInterface) {
+                $simpleSensors[] = $object;
+            } elseif ($object instanceof MultiSensorInterface) {
+                $multiSensors[] = $object->getSensors();
+            }
+        }
+
+        $this->clientService->dispatchMessages(
+            array_map([$this, 'sensorToArray'], array_merge($simpleSensors, ...$multiSensors))
+        );
+    }
+
+    #[ArrayShape(['name' => "string", 'tags' => "array", 'value' => "int"])]
+    private function sensorToArray(SensorInterface $sensor): array
+    {
+        return [
+            'name' => $sensor->getName(),
+            'value' => $sensor->getValue(),
+            'tags' => array_merge($this->tags, $sensor->getTags()),
+        ];
     }
 }

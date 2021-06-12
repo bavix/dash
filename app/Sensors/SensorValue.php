@@ -8,11 +8,12 @@ use App\Interfaces\SensorInterface;
 use Exception;
 use JetBrains\PhpStorm\Pure;
 
-class RandomTinyint implements SensorInterface
+class SensorValue implements SensorInterface
 {
     #[Pure] public function __construct(
         private string $name,
-        private array $tags = [],
+        private int $value,
+        private array $tags = []
     ) {
     }
 
@@ -29,6 +30,6 @@ class RandomTinyint implements SensorInterface
     /** @throws Exception */
     public function getValue(): int
     {
-        return random_int(0, 128);
+        return $this->value;
     }
 }
