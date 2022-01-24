@@ -4,6 +4,7 @@ use App\Units\Aria2;
 use App\Units\Cron;
 use App\Units\Beanstalkd;
 use App\Units\Grafana;
+use App\Units\HomeAssistant;
 use App\Units\Keenetic3Router;
 use App\Units\Linux;
 use App\Units\Netatalk;
@@ -67,6 +68,13 @@ return [
         'enable' => env('SERVICE_PLEX_ENABLE', false),
         'options' => [
             'url' => env('SERVICE_PLEX_URL', 'http://127.0.0.1:32400'),
+        ],
+    ],
+    'home_assistant' => [
+        'class' => HomeAssistant::class,
+        'enable' => env('SERVICE_HASS_ENABLE', false),
+        'options' => [
+            'url' => env('SERVICE_HASS_URL', 'http://127.0.0.1:32400'),
         ],
     ],
     'grafana' => [
