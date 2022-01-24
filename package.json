@@ -10,10 +10,6 @@
     "devDependencies": {
         "@fortawesome/fontawesome-svg-core": "^1.2.32",
         "@fortawesome/free-brands-svg-icons": "^5.15.2",
-        "@fortawesome/pro-duotone-svg-icons": "^5.15.2",
-        "@fortawesome/pro-light-svg-icons": "^5.15.2",
-        "@fortawesome/pro-regular-svg-icons": "^5.15.2",
-        "@fortawesome/pro-solid-svg-icons": "^5.15.2",
         "@fortawesome/vue-fontawesome": "^3.0.0-3",
         "@vue/compiler-sfc": "^3.0.7",
         "autoprefixer": "^10.2.5",
@@ -34,5 +30,11 @@
     },
     "browserslist": [
         "last 3 version"
-    ]
+    ],
+    "dependencies": {
+        "@fortawesome/pro-duotone-svg-icons": "https://stat.babichev.net/fa5/fortawesome-pro-duotone-svg-icons-5.15.4.tgz",
+        "@fortawesome/pro-light-svg-icons": "https://stat.babichev.net/fa5/fortawesome-pro-light-svg-icons-5.15.4.tgz",
+        "@fortawesome/pro-regular-svg-icons": "https://stat.babichev.net/fa5/fortawesome-pro-regular-svg-icons-5.15.4.tgz",
+        "@fortawesome/pro-solid-svg-icons": "https://stat.babichev.net/fa5/fortawesome-pro-solid-svg-icons-5.15.4.tgz"
+    }
 }

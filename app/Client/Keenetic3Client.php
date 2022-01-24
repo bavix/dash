@@ -5,13 +5,11 @@ declare(strict_types=1);
 namespace App\Client;
 
 use App\Interfaces\HttpClientInterface;
-use GuzzleHttp\Utils;
 use Illuminate\Http\Client\ConnectionException;
 use Illuminate\Http\Client\PendingRequest;
 use Illuminate\Http\Client\Response;
 use Illuminate\Support\Facades\Http;
 use JetBrains\PhpStorm\Pure;
-use JsonException;
 
 /**
  * @psalm-immutable

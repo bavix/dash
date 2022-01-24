@@ -24,6 +24,7 @@ import {
     faDatabase,
     faChartNetwork,
     faChartArea,
+    faHouse,
 } from '@fortawesome/pro-light-svg-icons'
 import {faPlay, faPowerOff} from '@fortawesome/pro-regular-svg-icons'
 import {faEthernet, faSpinnerThird} from '@fortawesome/pro-duotone-svg-icons'
@@ -56,6 +57,7 @@ library.add(...[
     faSync,
     faEthernet,
     faSpinnerThird,
+    faHouse,
 ])
 
 export default FontAwesomeIcon;
